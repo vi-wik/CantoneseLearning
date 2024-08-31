@@ -8,15 +8,15 @@
 #### 主要功能
 1. 根据汉字查找拼音
 
-![主界面](https://github.com/wi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/main.jpg)
+![主界面](https://github.com/vi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/main.jpg)
 
 2. 发音-韵母
 
-![发音-韵母](https://github.com/wi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/vowels.jpg)
+![发音-韵母](https://github.com/vi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/vowels.jpg)
 
 3. 知识库-音调
 
-![知识库-音调](https://github.com/wi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/syllabletone.jpg)
+![知识库-音调](https://github.com/vi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/syllabletone.jpg)
 
 
 #### 应用下载
