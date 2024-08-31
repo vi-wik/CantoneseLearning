@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CantoneseLearning.App.Mandarin2Cantonese"
+             Title="">
+
+    <Grid RowDefinitions="Auto,*" Grid.Column="0">
+        <VerticalStackLayout Grid.Row="0">
+            <HorizontalStackLayout>
+                <Label Text="查找普通话：" VerticalOptions="Center"></Label>
+                <CheckBox x:Name="chkSearchMandarin" IsChecked="True"/>
+            </HorizontalStackLayout>       
+            
+            <Editor x:Name="txtWord" Text="" Placeholder="请输入要查找的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
+            <Button  x:Name="btnSearch"  Text="查找"  Clicked="OnSearchButtonClicked"   />
+        </VerticalStackLayout>
+
+        <ListView x:Name="lstMandarin2Cantoneses" Grid.Row="1"  Style="{StaticResource DefaultListView}">
+            <ListView.Header>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="普通话" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Start"/>
+                    <Label Text="粤语" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="0.5*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Mandarin}"  Grid.Column="0" HorizontalTextAlignment="Start"/>
+                            <Label Text="{Binding Cantonese}" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

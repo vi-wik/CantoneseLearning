@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CantoneseLearning.App.CompareYPGP"
+             Title="">
+
+    <Grid ColumnDefinitions="*,*">
+        <Grid RowDefinitions="Auto,*" Grid.Column="0">
+            <VerticalStackLayout Grid.Row="0">
+                <Label Text="声母" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+
+            <ListView x:Name="lstConsonants" Grid.Row="1" ItemSelected="lstConsonants_ItemSelected" Style="{StaticResource DefaultListView}">
+                <ListView.Header>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="50" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="粤拼" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Start"/>
+                        <Label Text="广拼" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Consonant_YP}" FontSize="20" Grid.Column="0" HorizontalTextAlignment="Start"/>
+                                <Label Text="{Binding Consonant_GP}" FontSize="20" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <Grid RowDefinitions="Auto,*" Grid.Column="1">
+            <VerticalStackLayout Grid.Row="0">
+                <Label Text="韵母" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+            </VerticalStackLayout>
+
+            <ListView x:Name="lstVowels" Grid.Row="1" ItemSelected="lstVowels_ItemSelected" Style="{StaticResource DefaultListView}">
+                <ListView.Header>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="粤拼" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Start"/>
+                        <Label Text="广拼" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Vowel_YP}" FontSize="20" Grid.Column="0" HorizontalTextAlignment="Start"/>
+                                <Label Text="{Binding Vowel_GP}" FontSize="20" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</ContentPage>

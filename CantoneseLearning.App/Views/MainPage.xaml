@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CantoneseLearning.App.MainPage">
+
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0">
+            <Editor x:Name="txtWord" Text="" Placeholder="请输入要查找的字" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
+            <Button  x:Name="btnSearch"  Text="查找"  Clicked="OnSearchButtonClicked"   />
+            <Grid x:Name="BatchPronounceGrid" Margin="0,2" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Button  x:Name="btnPronounceCantonese"  Text="连续发音（粤）" WidthRequest="130" Clicked="OnPronounceCantoneseButtonClicked"  Grid.Column="0"  />
+                <Button  x:Name="btnPronounceMandarin"  Text="连续发音（普）"  WidthRequest="130" Clicked="OnPronounceMandarinButtonClicked"  Grid.Column="1" />
+            </Grid>
+        </VerticalStackLayout>
+
+        <CollectionView x:Name="lstSyllables" Grid.Row="1" Margin="0,2" Style="{StaticResource DefaultCollectionView}" EmptyView="" SelectionMode="None" >
+            <CollectionView.ItemTemplate>               
+                <DataTemplate>                    
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
+                            </Label.GestureRecognizers>                   
+                        </Label>                        
+                        <Label Grid.Column="1"  Text="异读" FontSize="13"  FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="LightBlue" VerticalTextAlignment="End"  IsVisible="{Binding HasAlt}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Grid.Column="2"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label Grid.Column="3"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" >
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <ImageButton Source="pronounce.png" Grid.Column="4" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0"></ImageButton>
+                        <Label Grid.Column="5"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <ImageButton  Source="pronounce.png" Grid.Column="6" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0"></ImageButton>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>    
+        </CollectionView>
+    </Grid>
+
+</ContentPage>

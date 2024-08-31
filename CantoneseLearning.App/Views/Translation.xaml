@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="CantoneseLearning.App.Translation">
+
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0">
+            <Editor x:Name="txtContent" Text="" Placeholder="请输入要翻译的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
+            <Button  x:Name="btnTranslate"  Text="翻译"  Clicked="OnTranslateButtonClicked"   />
+
+            <VerticalStackLayout x:Name="resultContent">
+                
+            </VerticalStackLayout>
+             <!--<Grid x:Name="grid" RowDefinitions="Auto,Auto"    ColumnDefinitions="0.9*,0.1*" BackgroundColor="AliceBlue">
+                <Label x:Name="lblResult" Padding="10,0" ></Label>
+                <ImageButton x:Name="imgPronounce" Source="pronounce.png" Grid.Column="1" HeightRequest="20" WidthRequest="20" ></ImageButton>
+
+            </Grid>-->
+
+        </VerticalStackLayout>           
+        
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CantoneseLearning.App.Tones"
+             Title="">
+    <ContentPage.Resources>
+        <Style x:Key="ToneButtonStyle" BasedOn="{StaticResource ConsonantButton}" TargetType="Button">
+            <Setter Property="WidthRequest" Value="80" />
+            <Setter Property="FontSize" Value="20" />         
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <Grid Padding="2" RowSpacing="15"  ColumnSpacing="10"
+            RowDefinitions="*,*,*,*,*,*,*,*,*"
+            ColumnDefinitions="80,*">
+
+        <Button Text="fan1" Grid.Row="0" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="阴平声，调值是[55]或[53]。日常用[55]，与普通话的阴平[55]相同。" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+        
+        <Button Text="fan2" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="阴上声，调值是[35]，是上升的。与普通话的阳平声的调值相同。" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+        
+        <Button Text="fan3" Grid.Row="2" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="阴去声，调值是[33]。" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+            
+        <Button Text="fan4" Grid.Row="3" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="阳平声，调值是[11]或[21]。" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+            
+        <Button Text="fan5" Grid.Row="4" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}" />
+        <Label Text="阳上声，调值是[13]，比阴上声略低。" Grid.Row="4" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+            
+        <Button Text="fan6" Grid.Row="5" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="阳去声，调值是[22]，比阴去声略低。" Grid.Row="5" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+        
+        <Button Text="fat7" Grid.Row="6" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="阴入声，与阴平声调值相同，但发音短促。" Grid.Row="6" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+            
+        <Button Text="faat8" Grid.Row="7" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}"/>
+        <Label Text="中入声，与阴去声调值相同，但发音短促。" Grid.Row="7" Grid.Column="1" VerticalTextAlignment="Center"></Label>          
+
+        <Button Text="fat9" Grid.Row="8" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource ToneButtonStyle}" />
+        <Label Text="阳入声，与阳去声调值相同，但发音短促。" Grid.Row="8" Grid.Column="1" VerticalTextAlignment="Center"></Label>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

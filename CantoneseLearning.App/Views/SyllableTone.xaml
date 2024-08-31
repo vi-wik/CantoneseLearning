@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CantoneseLearning.App.SyllableTone"
+             Title="">
+    <ContentPage.Resources>
+        <Style x:Key="RowHeaderCellLabel" TargetType="Label">
+            <Setter Property="TextColor" Value="Green"></Setter>
+        </Style>
+
+        <Style x:Key="ToneMarkLabel" TargetType="Label">
+            <Setter Property="BackgroundColor" Value="Orange"></Setter>           
+        </Style>
+
+        <Style x:Key="ToneDemoButtonStyle" BasedOn="{StaticResource ConsonantButton}" TargetType="Button">
+            <Setter Property="WidthRequest" Value="30" />
+            <Setter Property="HeightRequest" Value="30" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Padding" Value="0,0"/>
+            <Setter Property="CornerRadius" Value="2"/>
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout>       
+        <Label Text="1. 声调" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+        <Grid x:Name="syllableToneGrid" RowSpacing="5" ColumnSpacing="2"
+              RowDefinitions="*,*,*,*,*,*,*,*,*,*"
+              ColumnDefinitions="35,35,35,35,35,35,35,35,35,Auto">
+
+            <Label Text="调名" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="阴平" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="阴上" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="阴去" Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="阳平" Grid.Row="0" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="阳上" Grid.Row="0" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="阳去" Grid.Row="0" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="阴入" Grid.Row="0" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="中入" Grid.Row="0" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="阳入" Grid.Row="0" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+
+            <Label Text="调序" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="1" Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="2" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="3" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="4" Grid.Row="1" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="5" Grid.Row="1" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center" ></Label>            
+            <Label Text="6" Grid.Row="1" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Label Text="7" Grid.Row="1" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="8" Grid.Row="1" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="9" Grid.Row="1" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+
+            <Label Text="5" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="" WidthRequest="30" HeightRequest="3" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+            <Image Source="toneupline.jpg" Grid.Row="2" Grid.RowSpan="3" Grid.Column="2" VerticalOptions="Center"></Image>
+            <Label Text="" WidthRequest="20" HeightRequest="3" Grid.Row="2" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+
+            <Label Text="4" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+
+            <Label Text="3" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="" WidthRequest="30" HeightRequest="3"  Grid.Row="4" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+            <Image Source="toneupline.jpg" Grid.Row="4" Grid.RowSpan="3" Grid.Column="5"  VerticalOptions="Center"></Image>
+            <Label Text="" WidthRequest="20" HeightRequest="3"  Grid.Row="4" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+
+            <Label Text="2" Grid.Row="5" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="" WidthRequest="30" HeightRequest="3" Grid.Row="5" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+            <Label Text="" WidthRequest="20" HeightRequest="3" Grid.Row="5" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+            
+            <Label Text="1" Grid.Row="6" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource RowHeaderCellLabel}"></Label>
+            <Label Text="" WidthRequest="30" HeightRequest="3" Grid.Row="6" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource ToneMarkLabel}"></Label>
+
+            <Label Text="示例" Grid.Row="8" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Button Text="三" Grid.Row="8" Grid.Column="1" CommandParameter="saam1" Clicked="ToneDemoButton_Clicked"  HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="九" Grid.Row="8" Grid.Column="2" CommandParameter="gau2" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="四" Grid.Row="8" Grid.Column="3" CommandParameter="sei3" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="零" Grid.Row="8" Grid.Column="4" CommandParameter="ling4" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="五" Grid.Row="8" Grid.Column="5" CommandParameter="ng5" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="二" Grid.Row="8" Grid.Column="6" CommandParameter="ji6" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="七" Grid.Row="8" Grid.Column="7" CommandParameter="cat1" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="八" Grid.Row="8" Grid.Column="8" CommandParameter="baat3" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="六" Grid.Row="8" Grid.Column="9" CommandParameter="luk6" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+
+            <Label Text="saam1" Grid.Row="9" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="gau2" Grid.Row="9" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="sei3" Grid.Row="9" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="ling4" Grid.Row="9" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="ng5" Grid.Row="9" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="ji6" Grid.Row="9" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="cat1" Grid.Row="9" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="baat3" Grid.Row="9" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label Text="luk6" Grid.Row="9" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+        </Grid>    
+
+        <Label></Label>
+        <Label Text="2. 入声" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+       
+        <Grid RowSpacing="5" ColumnSpacing="2"
+             RowDefinitions="*,*"
+             ColumnDefinitions="60,60,60,60">
+
+            <Label Text="粤拼：" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Button Text="p" Grid.Row="0" Grid.Column="1" Style="{StaticResource ConsonantButton}"/>
+            <Button Text="t" Grid.Row="0" Grid.Column="2" Style="{StaticResource ConsonantButton}"/>
+            <Button Text="k" Grid.Row="0" Grid.Column="3" Style="{StaticResource ConsonantButton}"/>
+
+            <Label Text="广拼：" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>           
+            <Button Text="b" Grid.Row="1" Grid.Column="1" Style="{StaticResource ConsonantButton}"/>
+            <Button Text="d" Grid.Row="1" Grid.Column="2" Style="{StaticResource ConsonantButton}" />
+            <Button Text="g" Grid.Row="1" Grid.Column="3" Style="{StaticResource ConsonantButton}"/>
+            
+        </Grid>
+
+        <Label></Label>
+        <Label Text="3. 闭口音（塞韵尾）: m" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+        <Label></Label>
+        <Label Text="4. 闭口型入声（塞韵尾）: p" VerticalOptions="Center" HorizontalOptions="Start" FontAttributes="Bold"/>
+
+        
+    </VerticalStackLayout>
+</ContentPage>

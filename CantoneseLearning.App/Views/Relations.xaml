@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CantoneseLearning.App.Relations"
+             Title="">
+    <ContentPage.Resources>
+        <Style x:Key="SpecialCharacterButtonStyle" BasedOn="{StaticResource ConsonantButton}" TargetType="Button">
+            <Setter Property="WidthRequest" Value="40" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0">
+            <StackLayout RadioButtonGroup.GroupName="SyllableType" Orientation="Horizontal" Margin="0,2">
+                <RadioButton IsChecked="True" Value="Mandarin" Content="普拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>
+                <RadioButton Value="Cantonese_YP" Content="粤拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>
+                <RadioButton Value="Cantonese_GP" Content="广拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>
+            </StackLayout>
+            <Editor x:Name="txtSyllable" Text="" Placeholder="请输入要查找的拼音" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
+            <StackLayout x:Name="PanelSpecialCharacter" RadioButtonGroup.GroupName="SyllableType" Orientation="Horizontal" Margin="0,2" IsVisible="false">
+                <Label Text="特殊字符：" VerticalOptions="Center"></Label>
+                <Button Text="é" Clicked="SpecialCharacterButton_Clicked" Style="{StaticResource SpecialCharacterButtonStyle}"></Button>
+                <Button Text="ê" Clicked="SpecialCharacterButton_Clicked" Margin="5,0" Style="{StaticResource SpecialCharacterButtonStyle}"></Button>
+            </StackLayout>
+            <Button  x:Name="btnSearch"  Text="查找"  Clicked="OnSearchButtonClicked"   />             
+        </VerticalStackLayout>
+
+        <CollectionView x:Name="lstSyllables" Grid.Row="1" Style="{StaticResource DefaultCollectionView}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>                   
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold" />
+                            <Label Grid.Column="1"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                            <Label Grid.Column="2"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                            <ImageButton  Source="pronounce.png" Grid.Column="3" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0"></ImageButton>
+                            <Label Grid.Column="4"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End"/>
+                            <ImageButton  Source="pronounce.png" Grid.Column="5" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0"></ImageButton>
+                        </Grid>                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+    
+</ContentPage>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CantoneseLearning.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CantoneseLearning.App"
+    Shell.FlyoutBehavior="Disabled"
+    Title="CantoneseLearning">
+
+    
+    <TabBar>
+        <Tab Title="主页">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"  Route="MainPage" />
+        </Tab>
+        <Tab Title="翻译">
+            <ShellContent ContentTemplate="{DataTemplate local:Translation}"  Route="Translation" />
+        </Tab>
+        <Tab Title="发音">
+            <ShellContent  Title="声母" ContentTemplate="{DataTemplate local:Consonants}" Route="Consonants" />
+            <ShellContent  Title="韵母" ContentTemplate="{DataTemplate local:Vowels}" Route="Vowels" />
+            <ShellContent  Title="音调" ContentTemplate="{DataTemplate local:Tones}" Route="Tones" />
+        </Tab>
+        <Tab Title="知识库">
+            <ShellContent  Title="声调" ContentTemplate="{DataTemplate local:SyllableTone}" Route="SyllableTone" />
+            <ShellContent  Title="粤拼广拼对照" ContentTemplate="{DataTemplate local:CompareYPGP}" Route="CompareYPGP" />
+            <ShellContent  Title="普通话粤语对照" ContentTemplate="{DataTemplate local:Mandarin2Cantonese}" Route="Mandarin2Cantonese" />
+            
+        </Tab>
+        <Tab Title="关联">
+             <ShellContent ContentTemplate="{DataTemplate local:Relations}"  Route="Relations" />
+        </Tab>        
+    </TabBar>  
+
+</Shell>

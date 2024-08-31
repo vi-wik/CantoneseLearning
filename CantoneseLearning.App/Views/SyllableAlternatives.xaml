@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+       x:Class="CantoneseLearning.App.SyllableAlternatives" Opened="Popup_Opened"
+       >
+<Grid RowDefinitions="30,*,Auto">
+        <VerticalStackLayout Grid.Row="0">
+            <Grid Margin="0,2" HeightRequest="30"  BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="lblWord" FontSize="20" FontAttributes="Bold"  Grid.Column="0" HorizontalTextAlignment="Center" ></Label>
+                <Label x:Name="lblDescription"  Grid.Column="1" VerticalTextAlignment="Center"></Label>
+                <ImageButton  Source="close.png" Grid.Column="2" HorizontalOptions="End" HeightRequest="20" WidthRequest="20" Clicked="OnCloseImageClicked"   Margin="2,0" />
+            </Grid>
+        </VerticalStackLayout>
+        <CollectionView x:Name="lstSyllables" Grid.Row="1" Margin="0,2" Style="{StaticResource DefaultCollectionView}" EmptyView="没有任何记录！" >
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                       
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                   
+                    <Label Grid.Column="0"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="1"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="Start" />
+                    <Label Grid.Column="2"  Text="白读" FontSize="18" HorizontalTextAlignment="Center"  IsVisible="{Binding IsOral}"/>
+                    <ImageButton  Source="pronounce.png" Grid.Column="3" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0" HorizontalOptions="End"></ImageButton>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+       </CollectionView>
+        <VerticalStackLayout Grid.Row="2" BackgroundColor="Transparent">
+            <Grid x:Name="BatchPronounceGrid" BackgroundColor="White" IsVisible="false" Margin="10,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  />
+                </Grid.ColumnDefinitions>
+                <Button  x:Name="btnPronounceCantonese"  Text="连续发音"  Clicked="OnPronounceCantoneseButtonClicked"  Grid.Column="0"  />
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+</toolkit:Popup>
