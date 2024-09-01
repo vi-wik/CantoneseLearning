@@ -509,6 +509,28 @@ namespace CantoneseLearning.Business
                         {
                             piece.Word = target.Cantonese.Split(splitors).FirstOrDefault();
                         }
+                        else
+                        {
+                            foreach (var mc in Mandarin2Cantoneses)
+                            {
+                                var words = mc.Mandarin.Split(splitors);
+
+                                foreach (var word in words)
+                                {
+                                    if (!string.IsNullOrEmpty(word))
+                                    {
+                                        Regex regex = new Regex(word);
+
+                                        var matches = regex.Matches(content);
+
+                                        foreach (Match match in matches)
+                                        {
+                                            piece.Word = piece.Word.Replace(match.Value, mc.Cantonese.Split(splitors).FirstOrDefault());
+                                        }
+                                    }
+                                }
+                            }
+                        }
 
                         pieces.Add(piece);
 
@@ -528,7 +550,5 @@ namespace CantoneseLearning.Business
 
             return result;
         }
-
-
     }
 }
