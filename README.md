@@ -8,7 +8,7 @@
 #### 主要功能
 1. 根据汉字查找拼音
 
-![主界面](https://github.com/vi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/main.jpg)
+![主界面](https://github.com/vi-wik/StaticResources/raw/master/images/screenshots/CantoneseLearning/index.jpg)
 
 2. 发音-韵母
 
