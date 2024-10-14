@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.DataAcces
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.App", "CantoneseLearning.App\CantoneseLearning.App.csproj", "{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CantoneseLearning.Participle", "CantoneseLearning.Participle\CantoneseLearning.Participle.csproj", "{6EF9226A-FC51-4AA2-9E39-10EB99BD8406}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.Participle", "CantoneseLearning.Participle\CantoneseLearning.Participle.csproj", "{6EF9226A-FC51-4AA2-9E39-10EB99BD8406}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
