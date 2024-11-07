@@ -5,11 +5,11 @@
         public int Id { get; set; }
         public string Mandarin { get; set; }
         public string Cantonese { get; set; }
-        public bool Reversed { get; set; }
-        public string Prefix { get; set; }
-        public string Suffix { get; set; }
-        public bool IsEndOfMandarin { get; set; }
-        public bool IsEndOfCantonese { get; set; }
+        public string MandarinSynonym { get; set; }
+        public string CantoneseSynonym { get; set; }
+        public string Exclusion { get; set; }
+        public string MandarinRegex { get; set; }
+        public string CantoneseRegex { get; set; }
         public int PatternId { get; set; }
     }
 }

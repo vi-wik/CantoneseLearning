@@ -10,6 +10,8 @@ namespace CantoneseLearning.Business.Model
     {
         public string Word { get; set; }
         public string Flag { get; set; }
+        public string ReplaceValue { get; set; }
         public int Order { get; set; }
+
     }
 }

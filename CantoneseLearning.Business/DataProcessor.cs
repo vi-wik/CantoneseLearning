@@ -3,18 +3,14 @@ using CantoneseLearning.DataAccess;
 using CantoneseLearning.Model;
 using CantoneseLearning.Participle;
 using CantoneseLearning.Utility;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace CantoneseLearning.Business
 {
     public class DataProcessor
     {
-        internal static IEnumerable<MandarinVowel> MandarinVowels { get; private set; }
-        internal static IEnumerable<V_Mandarin2Cantonese> Mandarin2Cantoneses { get; private set; }
+        internal static IEnumerable<MandarinVowel> MandarinVowels { get; private set; }     
 
         static DataProcessor()
         {
@@ -421,134 +417,27 @@ namespace CantoneseLearning.Business
 
         public static async Task<IEnumerable<V_Mandarin2Cantonese>> GetVMandarin2Cantoneses()
         {
-            var results = await DbObjectsFetcher.GetVMandarin2Cantoneses();
-
-            return results;
+            return await DbObjectsFetcher.GetVMandarin2Cantoneses();
         }
 
-        public static async Task<TranslationResult> Translate(string content)
+        public static async Task<IEnumerable<V_CantoneseExample>> GetVCantoneseExamples()
         {
-            TranslationResult result = new TranslationResult();
-
-            if (Mandarin2Cantoneses == null)
-            {
-                Mandarin2Cantoneses = await GetVMandarin2Cantoneses();
-            }
-
-            char[] splitors = [',', '，'];
-
-            Func<string, V_Mandarin2Cantonese> find = (word) =>
-            {
-                V_Mandarin2Cantonese target = null;
-
-                foreach (var mc in Mandarin2Cantoneses)
-                {
-                    if (mc.Mandarin == word)
-                    {
-                        target = mc;
-                    }
-                    else if (mc.Mandarin.Split(splitors).Contains(word))
-                    {
-                        target = mc;
-                    }
-
-                    if (target != null)
-                    {
-                        break;
-                    }
-                }
-
-                return target;
-            };
-
-            Action<V_Mandarin2Cantonese> setResult = (res) =>
-            {
-                var cantoneses = res.Cantonese.Split(splitors);
-
-                result.Contents.AddRange(cantoneses);
-
-                if (res.Example != null)
-                {
-                    result.Examples.Add(res.Example);
-                }
-
-                result.PatternNotes = res.PatternNotes;
-            };
-
-            V_Mandarin2Cantonese target = find(content);
-
-            if (target != null)
-            {
-                setResult(target);
-            }
-            else
-            {
-                if (target == null)
-                {
-                    var cuts = ParticipleHelper.Cut(content);
-
-                    List<CutPiece> pieces = new List<CutPiece>();
-
-                    bool previousIsOrderIncreased = false;
-
-                    for (int i = 0; i < cuts.Count; i++)
-                    {
-                        var cut = cuts[i];
-
-                        CutPiece piece = new CutPiece() { Word = cut.Word, Flag = cut.Flag, Order = i };
-
-                        if (previousIsOrderIncreased)
-                        {
-                            piece.Order--;
-                            previousIsOrderIncreased = false;
-                        }
-
-                        target = find(cut.Word);
-
-                        if (target != null)
-                        {
-                            piece.Word = target.Cantonese.Split(splitors).FirstOrDefault();
-                        }
-                        else
-                        {
-                            foreach (var mc in Mandarin2Cantoneses)
-                            {
-                                var words = mc.Mandarin.Split(splitors);
-
-                                foreach (var word in words)
-                                {
-                                    if (!string.IsNullOrEmpty(word))
-                                    {
-                                        Regex regex = new Regex(word);
-
-                                        var matches = regex.Matches(content);
-
-                                        foreach (Match match in matches)
-                                        {
-                                            piece.Word = piece.Word.Replace(match.Value, mc.Cantonese.Split(splitors).FirstOrDefault());
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        pieces.Add(piece);
-
-                        if (target != null && target.PatternId == 2) //先
-                        {
-                            if (i + 1 < cuts.Count && cuts[i + 1].Flag.StartsWith("v")) //动词
-                            {
-                                piece.Order++;
-                                previousIsOrderIncreased = true;
-                            }
-                        }
-                    }
-
-                    result.Contents.Add(string.Join("", pieces.OrderBy(i => i.Order).Select(item => item.Word)));
-                }
-            }
-
-            return result;
+            return await DbObjectsFetcher.GetVCantoneseExamples();
         }
+
+        public static async Task<IEnumerable<CantoneseSynonym>> GetCantoneseSynonyms()
+        {
+            return await DbObjectsFetcher.GetCantoneseSynonyms();
+        }
+
+        public static async Task<IEnumerable<CantoneseSentencePattern>> GetCantoneseSentencePatterns()
+        {
+            return await DbObjectsFetcher.GetCantoneseSentencePatterns();
+        }
+
+        public static async Task<TranslationResult> Translate(TranslateType translateType, string content)
+        {
+            return await TranslateHelper.Translate(translateType, content);
+        }      
     }
 }

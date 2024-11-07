@@ -6,6 +6,14 @@
 
     <Grid RowDefinitions="Auto,*">
         <VerticalStackLayout Grid.Row="0">
+            <HorizontalStackLayout>
+                <Label Text="类型：" VerticalOptions="Center"></Label>
+
+                <RadioButton x:Name="rbCantonese2Mandarin" Content="粤=>普" IsChecked="True" GroupName="TranslateType"/>
+
+                <RadioButton x:Name="rbMandarin2Cantonese" Content="普=>粤" GroupName="TranslateType"  Margin="20,0"/>
+            </HorizontalStackLayout>
+            
             <Editor x:Name="txtContent" Text="" Placeholder="请输入要翻译的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
             <Button  x:Name="btnTranslate"  Text="翻译"  Clicked="OnTranslateButtonClicked"   />
 

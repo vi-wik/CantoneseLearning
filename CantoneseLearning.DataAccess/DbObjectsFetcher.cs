@@ -9,6 +9,25 @@ namespace CantoneseLearning.DataAccess
 {
     public class DbObjectsFetcher
     {
+        public static async Task<IEnumerable<MandarinWord>> GetMandarinWords()
+        {
+            string sql = "select * from MandarinWord";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<MandarinWord>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseWord>> GetCantoneseWords()
+        {
+            string sql = "select * from CantoneseWord";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseWord>(sql));
+            }
+        }
 
         public static async Task<(IEnumerable<V_CantoneseSyllable> CantoneseSyllables, IEnumerable<V_MandarinSyllable> MandarinSyllables)> GetSyllables(string content)
         {
@@ -120,6 +139,37 @@ namespace CantoneseLearning.DataAccess
             using (var connection = DbUtitlity.CreateDbConnection())
             {
                 return (await connection.QueryAsync<V_Mandarin2Cantonese>(sql));
+            }
+        }
+        
+
+        public static async Task<IEnumerable<V_CantoneseExample>> GetVCantoneseExamples()
+        {
+            string sql = "select * from v_CantoneseExamples";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseExample>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseSynonym>> GetCantoneseSynonyms()
+        {
+            string sql = "select * from CantoneseSynonym";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseSynonym>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseSentencePattern>> GetCantoneseSentencePatterns()
+        {
+            string sql = "select * from CantoneseSentencePattern";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseSentencePattern>(sql));
             }
         }
     }

@@ -90,6 +90,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\am2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\am3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ang1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\ang2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ap1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\au1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\au2.mp3" />
@@ -284,6 +285,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\co2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\co3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\co4.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\co5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\coek3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\coeng1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\coeng2.mp3" />
@@ -307,6 +309,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\cung2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\cung3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\cung4.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\cung5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\cung6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\cyu1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\cyu2.mp3" />
@@ -363,6 +366,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\de1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\de2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\dei6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\dek2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\dek6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\deng1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\deng2.mp3" />
@@ -405,6 +409,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\do6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\doe2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\doek3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\doeng1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\doi6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\dok6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\dong1.mp3" />
@@ -450,6 +455,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\fan4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fan5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fan6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\fang4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fat1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fat3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fat6.mp3" />
@@ -461,6 +467,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\fei2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fei4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fei6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\fing6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fo1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fo2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\fo3.mp3" />
@@ -505,6 +512,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\gaan3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gaang1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gaang3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\gaap2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gaap3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gaat3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gaat6.mp3" />
@@ -527,6 +535,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\gang2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gang3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gap1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\gap2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gap3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gap6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gat1.mp3" />
@@ -583,6 +592,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\goi1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\goi2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\goi3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\gok2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gok3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gon1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\gon2.mp3" />
@@ -745,6 +755,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\hoi4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\hoi5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\hoi6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\hok2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\hok3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\hok6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\hon1.mp3" />
@@ -780,6 +791,9 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\jaa1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jaa5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jaa6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\jaai2.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\jaak3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\jai5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jai6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jam1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jam2.mp3" />
@@ -859,6 +873,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\joeng5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\joeng6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\juk1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\juk2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\juk6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jung1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\jung2.mp3" />
@@ -896,6 +911,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\kam4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kam5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kan4.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\kan5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kang2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kang3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kap1.mp3" />
@@ -906,6 +922,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\kau4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kau5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ke1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\ke2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ke4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kei1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kei2.mp3" />
@@ -935,8 +952,10 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\koeng5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\koi2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\koi3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\kok1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kok3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kong1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\kong2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kong3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kong4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ku1.mp3" />
@@ -968,7 +987,9 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\kyun4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\kyut3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\laa1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\laa2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\laa3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\laa5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\laai1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\laai2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\laai3.mp3" />
@@ -1000,10 +1021,12 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\lam4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lam5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lang1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\lang3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lap1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lap6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lat1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lau1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\lau2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lau4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lau5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lau6.mp3" />
@@ -1029,6 +1052,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\leon4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\leon5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\leon6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\leot2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\leot6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lik1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lik6.mp3" />
@@ -1046,6 +1070,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\ling4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ling5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ling6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\lip1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lip6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lit3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lit6.mp3" />
@@ -1067,6 +1092,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\loeng6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\loi4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\loi6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\lok2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lok3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lok6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\long1.mp3" />
@@ -1080,6 +1106,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\lou5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lou6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\luk1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\luk2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\luk6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lung1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\lung4.mp3" />
@@ -1108,6 +1135,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\maan5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\maan6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\maang1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\maang2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\maang4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\maang5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\maang6.mp3" />
@@ -1122,6 +1150,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\mai4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mai5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mai6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\mak1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mak3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mak6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\man1.mp3" />
@@ -1130,6 +1159,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\man4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\man5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\man6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\mang1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mang2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mang4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mat1.mp3" />
@@ -1157,7 +1187,9 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\ming4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ming5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ming6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\mit1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mit6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\miu2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\miu4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\miu5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\miu6.mp3" />
@@ -1179,6 +1211,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\mou5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mou6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mui1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\mui2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mui4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mui5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\mui6.mp3" />
@@ -1201,6 +1234,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\naai1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\naai4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\naai5.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\naam3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\naam4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\naam5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\naan4.mp3" />
@@ -1230,6 +1264,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\nei4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nei5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nei6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\neoi2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\neoi5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\neot6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ng2.mp3" />
@@ -1258,6 +1293,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngaat3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngaat6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngaau1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\ngaau2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngaau3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngaau4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngaau5.mp3" />
@@ -1276,11 +1312,13 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngan4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngan6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngang1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\ngang2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngap1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngap6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngat6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngau1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngau2.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\ngau3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngau4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngau5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngau6.mp3" />
@@ -1304,6 +1342,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngong3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngong4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngong5.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\ngong6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngou1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngou2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\ngou3.mp3" />
@@ -1348,6 +1387,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\nou6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nuk1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nuk6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\nung1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nung4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nung6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\nyun5.mp3" />
@@ -1624,6 +1664,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\tan4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\tang4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\tau1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\tau2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\tau3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\tau4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\tek3.mp3" />
@@ -1734,6 +1775,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\wing6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\wo1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\wo2.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\wo3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\wo4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\wo5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\wo6.mp3" />
@@ -1768,6 +1810,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\zaai1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zaai3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zaai6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\zaak2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zaak3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zaak6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zaam1.mp3" />
@@ -1819,6 +1862,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\ze6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zek1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zek3.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\zek6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zeng1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zeng2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zeng6.mp3" />
@@ -1860,6 +1904,7 @@
 	  <None Remove="Resources\Raw\Audios\Cantonese\zo2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zo3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zo6.mp3" />
+	  <None Remove="Resources\Raw\Audios\Cantonese\zoek2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zoek3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zoek6.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\zoeng1.mp3" />
@@ -2099,7 +2144,9 @@
 	  <None Remove="Resources\Raw\Audios\Mandarin\dao2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\dao3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\dao4.mp3" />
+	  <None Remove="Resources\Raw\Audios\Mandarin\de1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\de2.mp3" />
+	  <None Remove="Resources\Raw\Audios\Mandarin\dei1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\dei3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\den4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\deng1.mp3" />
@@ -2757,6 +2804,7 @@
 	  <None Remove="Resources\Raw\Audios\Mandarin\sa3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\sa4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\sai1.mp3" />
+	  <None Remove="Resources\Raw\Audios\Mandarin\sai3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\sai4.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\san1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\san3.mp3" />
@@ -2855,6 +2903,7 @@
 	  <None Remove="Resources\Raw\Audios\Mandarin\ta1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\ta3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\ta4.mp3" />
+	  <None Remove="Resources\Raw\Audios\Mandarin\ta5.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\tai1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\tai2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\tai4.mp3" />

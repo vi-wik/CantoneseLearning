@@ -1,5 +1,11 @@
 ﻿namespace CantoneseLearning.Business.Model
 {
+    public enum TranslateType
+    {
+        Mandarin2Cantonese=1,
+        Cantonese2Mandarin=2
+    }
+
     public class TranslationResult
     {
         public List<string> Contents { get; set; } = new List<string>();

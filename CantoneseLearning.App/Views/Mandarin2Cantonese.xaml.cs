@@ -40,14 +40,14 @@ public partial class Mandarin2Cantonese : ContentPage
 
             if(isMandarin)
             {
-                if(this.IsMatched(word, mandarin))
+                if(this.IsMatched(word, mandarin, mc.MandarinSynonym))
                 {
                     matched = true;
                 }
             }    
             else
             {
-                if(this.IsMatched(word, cantonese))
+                if(this.IsMatched(word, cantonese, mc.CantoneseSynonym))
                 {
                     matched = true;
                 }
@@ -68,9 +68,9 @@ public partial class Mandarin2Cantonese : ContentPage
         }
     }
 
-    private bool IsMatched(string search, string content)
+    private bool IsMatched(string search, string content, string synonym)
     {
-        string[] items = content.Split(',','£¬');
+        var items = TranslateHelper.GetItemsBySynonym(content, synonym);
 
         if(items.Contains(search))
         {

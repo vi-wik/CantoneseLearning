@@ -23,7 +23,9 @@ namespace CantoneseLearning.App
                 return;
             }
 
-            var result = await DataProcessor.Translate(content.Trim());
+            TranslateType translateType = this.rbMandarin2Cantonese.IsChecked ? TranslateType.Mandarin2Cantonese : TranslateType.Cantonese2Mandarin;
+
+            var result = await DataProcessor.Translate(translateType, content.Trim());
 
             if (result.Contents.Count == 0)
             {
@@ -109,7 +111,7 @@ namespace CantoneseLearning.App
 
         private async void OnCantonesePronounceButtonClicked(object sender, EventArgs e)
         {
-            this.PlayAudios(sender, LanguageType.Cantonese);
+            this.PlayAudios(sender, this.rbMandarin2Cantonese.IsChecked? LanguageType.Cantonese: LanguageType.Mandarin);
         }
 
         private async void PlayAudios(object sender, LanguageType type)
