@@ -1,4 +1,5 @@
 ﻿using Plugin.Maui.Audio;
+using System.Text;
 
 namespace CantoneseLearning.App
 {
@@ -12,6 +13,20 @@ namespace CantoneseLearning.App
 
                 audioPlayer.Play();
             }           
+        }
+
+        public static async void SpeechMandarin(string content)
+        {
+            IEnumerable<Locale> locales = await TextToSpeech.Default.GetLocalesAsync();
+
+            SpeechOptions options = new SpeechOptions()
+            {
+                Pitch = 1.5f,   // 0.0 - 2.0
+                Volume = 1f, // 0.0 - 1.0
+                Locale = locales.FirstOrDefault(item => item.Name == "zh")
+            };
+
+            await TextToSpeech.Default.SpeakAsync(content, options);
         }
     }
 }

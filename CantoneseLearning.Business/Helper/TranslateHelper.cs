@@ -1,8 +1,6 @@
 ﻿using CantoneseLearning.Business.Model;
 using CantoneseLearning.Model;
 using CantoneseLearning.Participle;
-using Newtonsoft.Json.Linq;
-using System;
 using System.Text.RegularExpressions;
 
 namespace CantoneseLearning.Business
@@ -198,7 +196,7 @@ namespace CantoneseLearning.Business
                                     {
                                         combination += nextWord[j];
 
-                                        if (combination == "上"
+                                        if ((combination == "上" || combination == "下")
                                             || ParticipleHelper.IsVerbWord(combination))
                                         {
                                             count++;

@@ -122,19 +122,26 @@ namespace CantoneseLearning.App
             {
                 string content = btn.CommandParameter?.ToString();
 
-                var syllables = await DataProcessor.GetSyllables(content, true);
-
-                if (syllables != null)
+                if(type == LanguageType.Cantonese)
                 {
-                    foreach (var s in syllables)
+                    var syllables = await DataProcessor.GetSyllables(content, true);
+
+                    if (syllables != null)
                     {
-                        string syllable = type == LanguageType.Mandarin ? s.Syllable_M_Full : s.SyllableFull;
+                        foreach (var s in syllables)
+                        {
+                            string syllable = type == LanguageType.Mandarin ? s.Syllable_M_Full : s.SyllableFull;
 
-                        AudioPlayer.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
+                            AudioPlayer.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
 
-                        Thread.Sleep(1000);
+                            Thread.Sleep(1000);
+                        }
                     }
                 }
+                else
+                {
+                    AudioPlayer.SpeechMandarin(content);
+                }               
             }
         }
     }
