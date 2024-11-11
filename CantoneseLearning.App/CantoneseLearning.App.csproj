@@ -63,7 +63,9 @@
 	  <None Remove=".gitignore" />
 	  <None Remove="Resources\Images\close.png" />
 	  <None Remove="Resources\Images\pronounce.png" />
+	  <None Remove="Resources\Images\search.png" />
 	  <None Remove="Resources\Images\toneupline.png" />
+	  <None Remove="Resources\Images\translate.png" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\aa1.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\aa2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\aa3.mp3" />

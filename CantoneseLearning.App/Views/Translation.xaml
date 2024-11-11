@@ -13,10 +13,18 @@
 
                 <RadioButton x:Name="rbMandarin2Cantonese" Content="普=>粤" GroupName="TranslateType"  Margin="20,0"/>
             </HorizontalStackLayout>
-            
-            <Editor x:Name="txtContent" Text="" Placeholder="请输入要翻译的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
-            <Button  x:Name="btnTranslate"  Text="翻译"  Clicked="OnTranslateButtonClicked"   />
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="9*" />
+                    <ColumnDefinition  Width="1*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Entry x:Name="txtContent" Text="" Placeholder="请输入要翻译的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing"></Entry>
+                <ImageButton  x:Name="btnSearch"  Grid.Column="1" Source="translate.png"  WidthRequest="20" HeightRequest="20"  Clicked="OnTranslateButtonClicked"   />
+
+            </Grid>
+           
             <VerticalStackLayout x:Name="resultContent">
                 
             </VerticalStackLayout>
