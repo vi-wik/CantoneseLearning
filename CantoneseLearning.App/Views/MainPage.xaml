@@ -12,7 +12,7 @@
                     <ColumnDefinition  Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Entry x:Name="txtWord" Text="" Grid.Column="0" Placeholder="请输入要查找的字" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing"></Entry>
+                <Entry x:Name="txtWord" Text="" Grid.Column="0" Placeholder="请输入要查找的字" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default"  ClearButtonVisibility="WhileEditing"></Entry>
                 <ImageButton  x:Name="btnSearch"  Grid.Column="1" Source="search.png"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   />
             </Grid>
             
@@ -35,6 +35,9 @@
             <CollectionView.ItemTemplate>               
                 <DataTemplate>                    
                     <Grid Padding="10">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2"></TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
@@ -47,33 +50,13 @@
                             <ColumnDefinition Width="80" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        
-                        <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
-                            </Label.GestureRecognizers>                   
-                        </Label>                        
-                        <Label Grid.Column="1"  Text="异读" FontSize="13"  FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="LightBlue" VerticalTextAlignment="End"  IsVisible="{Binding HasAlt}">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <Label Grid.Column="2"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
-                            </Label.GestureRecognizers>
-                        </Label>
-                        <Label Grid.Column="3"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" >
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
-                            </Label.GestureRecognizers>
-                        </Label>
+
+                        <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold"/>
+                        <Label Grid.Column="1"  Text="异读" FontSize="13"  FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="LightBlue" VerticalTextAlignment="End"  IsVisible="{Binding HasAlt}" />
+                        <Label Grid.Column="2"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                        <Label Grid.Column="3"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" />
                         <ImageButton Source="pronounce.png" Grid.Column="4" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0"></ImageButton>
-                        <Label Grid.Column="5"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="2" />
-                            </Label.GestureRecognizers>
-                        </Label>
+                        <Label Grid.Column="5"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End"/>
                         <ImageButton  Source="pronounce.png" Grid.Column="6" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0"></ImageButton>
                     </Grid>
                 </DataTemplate>

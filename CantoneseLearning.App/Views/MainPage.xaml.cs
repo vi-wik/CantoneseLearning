@@ -93,7 +93,7 @@ namespace CantoneseLearning.App
 
         private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
-            var syllable = (sender as Label).BindingContext as SyllableDisplay;
+            var syllable = (sender as View)?.BindingContext as SyllableDisplay;
 
             if (syllable != null && syllable.HasAlt)
             {
