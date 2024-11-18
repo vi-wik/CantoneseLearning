@@ -23,7 +23,7 @@
                     <ColumnDefinition  Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Entry x:Name="txtSyllable" Text="" Placeholder="请输入要查找的拼音" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing"></Entry>
+                <Entry x:Name="txtSyllable" Text="" Placeholder="请输入要查找的拼音" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing" Completed="txtSyllable_Completed"></Entry>
                 <ImageButton  x:Name="btnSearch"  Grid.Column="1" Source="search.png"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   />
             </Grid>            
             

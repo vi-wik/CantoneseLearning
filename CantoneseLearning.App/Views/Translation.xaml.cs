@@ -13,7 +13,12 @@ namespace CantoneseLearning.App
             InitializeComponent();
         }
 
-        private async void OnTranslateButtonClicked(object sender, EventArgs e)
+        private void OnTranslateButtonClicked(object sender, EventArgs e)
+        {
+            this.Translate();
+        }
+
+        private async void Translate()
         {
             string content = this.txtContent.Text;
 
@@ -143,6 +148,11 @@ namespace CantoneseLearning.App
                     AudioPlayer.SpeechMandarin(content);
                 }               
             }
+        }
+
+        private void txtContent_Completed(object sender, EventArgs e)
+        {
+            this.Translate();
         }
     }
 }

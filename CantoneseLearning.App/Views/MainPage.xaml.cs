@@ -13,7 +13,12 @@ namespace CantoneseLearning.App
             InitializeComponent();
         }
 
-        private async void OnSearchButtonClicked(object sender, EventArgs e)
+        private void OnSearchButtonClicked(object sender, EventArgs e)
+        {
+            this.Search();
+        }
+
+        private async void Search()
         {
             string content = this.txtWord.Text;
 
@@ -109,6 +114,11 @@ namespace CantoneseLearning.App
 
                 this.ShowPopup(popup);
             }
+        }
+
+        private void txtWord_Completed(object sender, EventArgs e)
+        {
+            this.Search();
         }
     }
 }

@@ -12,7 +12,12 @@ namespace CantoneseLearning.App
             InitializeComponent();
         }
 
-        private async void OnSearchButtonClicked(object sender, EventArgs e)
+        private void OnSearchButtonClicked(object sender, EventArgs e)
+        {
+            this.Search();
+        }
+
+        private async void Search()
         {
             string syllable = this.txtSyllable.Text;
 
@@ -70,6 +75,11 @@ namespace CantoneseLearning.App
         {
             this.txtSyllable.Text += (sender as Button).Text;            
             this.txtSyllable.Focus();
+        }
+
+        private void txtSyllable_Completed(object sender, EventArgs e)
+        {
+            this.Search();
         }
     }
 }

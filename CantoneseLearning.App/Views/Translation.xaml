@@ -20,7 +20,7 @@
                     <ColumnDefinition  Width="1*"/>
                 </Grid.ColumnDefinitions>
                 
-                <Entry x:Name="txtContent" Text="" Placeholder="请输入要翻译的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing"></Entry>
+                <Entry x:Name="txtContent" Text="" Placeholder="请输入要翻译的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing" Completed="txtContent_Completed"></Entry>
                 <ImageButton  x:Name="btnSearch"  Grid.Column="1" Source="translate.png"  WidthRequest="20" HeightRequest="20"  Clicked="OnTranslateButtonClicked"   />
 
             </Grid>
