@@ -27,12 +27,7 @@
            
             <VerticalStackLayout x:Name="resultContent">
                 
-            </VerticalStackLayout>
-             <!--<Grid x:Name="grid" RowDefinitions="Auto,Auto"    ColumnDefinitions="0.9*,0.1*" BackgroundColor="AliceBlue">
-                <Label x:Name="lblResult" Padding="10,0" ></Label>
-                <ImageButton x:Name="imgPronounce" Source="pronounce.png" Grid.Column="1" HeightRequest="20" WidthRequest="20" ></ImageButton>
-
-            </Grid>-->
+            </VerticalStackLayout>    
 
         </VerticalStackLayout>           
         

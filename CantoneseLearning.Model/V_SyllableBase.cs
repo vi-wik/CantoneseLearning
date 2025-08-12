@@ -13,6 +13,6 @@
         public int Priority { get; set; }
         public bool Hidden { get; set; }
         public string Examples { get; set; }
-        public string Annotation { get; set; }
+        public string Description { get; set; }
     }
 }

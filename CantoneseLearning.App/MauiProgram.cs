@@ -16,6 +16,8 @@ namespace CantoneseLearning.App
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FASolid");
+                    fonts.AddFont("Font Awesome 6 Free-Regular-400.otf", "FARegular");
                 });
 
             builder.Services.AddSingleton(AudioManager.Current);           

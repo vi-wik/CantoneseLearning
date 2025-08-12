@@ -10,25 +10,40 @@
     
     <TabBar>
         <Tab Title="主页">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource home}"  />
+            </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"  Route="MainPage" />
         </Tab>
         <Tab Title="翻译">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource translate}"  />
+            </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:Translation}"  Route="Translation" />
         </Tab>
         <Tab Title="发音">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource pronounce}"  />
+            </Tab.Icon>
             <ShellContent  Title="声母" ContentTemplate="{DataTemplate local:Consonants}" Route="Consonants" />
             <ShellContent  Title="韵母" ContentTemplate="{DataTemplate local:Vowels}" Route="Vowels" />
             <ShellContent  Title="音调" ContentTemplate="{DataTemplate local:Tones}" Route="Tones" />
         </Tab>
         <Tab Title="知识库">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource book}"  />
+            </Tab.Icon>
             <ShellContent  Title="声调" ContentTemplate="{DataTemplate local:SyllableTone}" Route="SyllableTone" />
             <ShellContent  Title="粤拼广拼对照" ContentTemplate="{DataTemplate local:CompareYPGP}" Route="CompareYPGP" />
             <ShellContent  Title="普通话粤语对照" ContentTemplate="{DataTemplate local:Mandarin2Cantonese}" Route="Mandarin2Cantonese" />
-            
-        </Tab>
-        <Tab Title="关联">
-             <ShellContent ContentTemplate="{DataTemplate local:Relations}"  Route="Relations" />
-        </Tab>        
+            <ShellContent  Title ="关联" ContentTemplate="{DataTemplate local:Relations}"  Route="Relations" />
+        </Tab>       
+        <!--<Tab Title="我的">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource user}"  />
+            </Tab.Icon>
+            <ShellContent  Title="我的" ContentTemplate="{DataTemplate local:My }" Route="My" />
+        </Tab>-->
     </TabBar>  
 
 </Shell>

@@ -57,7 +57,8 @@ namespace CantoneseLearning.App
                 label.Text = text;
 
                 ImageButton image = new ImageButton();
-                image.Source = "pronounce.png";
+                image.Source = new FontImageSource() { FontFamily = "FASolid", Glyph = Application.Current.Resources["pronounce"].ToString(), Color = Colors.Orange, Size = 10 };
+                image.BackgroundColor = Colors.Transparent;
                 image.HeightRequest = 20;
                 image.WidthRequest = 20;
                 image.CommandParameter = con;
@@ -104,7 +105,8 @@ namespace CantoneseLearning.App
         private ImageButton CreatePronounceImageButton(string text)
         {
             ImageButton imageButton = new ImageButton();
-            imageButton.Source = "pronounce.png";
+            imageButton.Source = new FontImageSource() { FontFamily = "FASolid", Glyph = Application.Current.Resources["pronounce"].ToString(), Color = Colors.Orange, Size = 10 };
+            imageButton.BackgroundColor = Colors.Transparent;
             imageButton.HeightRequest = 20;
             imageButton.WidthRequest = 20;
             imageButton.CommandParameter = text;

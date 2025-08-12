@@ -1,4 +1,5 @@
 ﻿using CantoneseLearning.Business;
+using CantoneseLearning.Business.Manager;
 
 namespace CantoneseLearning.App
 {
@@ -9,6 +10,16 @@ namespace CantoneseLearning.App
             InitializeComponent();
 
             DataFileManager.Init();
+
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                Exception exception = e?.ExceptionObject as Exception;
+
+                if (exception != null)
+                {
+                    LogManager.LogException(exception);
+                }
+            };
 
             MainPage = new AppShell();
         }

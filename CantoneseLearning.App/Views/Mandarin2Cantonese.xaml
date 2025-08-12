@@ -9,10 +9,23 @@
             <HorizontalStackLayout>
                 <Label Text="查找普通话：" VerticalOptions="Center"></Label>
                 <CheckBox x:Name="chkSearchMandarin" IsChecked="True"/>
-            </HorizontalStackLayout>       
+            </HorizontalStackLayout>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Editor x:Name="txtWord" Text="" Placeholder="请输入要查找的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
             
-            <Editor x:Name="txtWord" Text="" Placeholder="请输入要查找的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
-            <Button  x:Name="btnSearch"  Text="查找"  Clicked="OnSearchButtonClicked"   />
+                <ImageButton  x:Name="btnSearch"  Grid.Column="1"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   >
+                    <ImageButton.Source>
+                        <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource search}"  Color="DodgerBlue" Size="16"/>
+                    </ImageButton.Source>
+                </ImageButton>
+            </Grid>            
+         
         </VerticalStackLayout>
 
         <ListView x:Name="lstMandarin2Cantoneses" Grid.Row="1"  Style="{StaticResource DefaultListView}">

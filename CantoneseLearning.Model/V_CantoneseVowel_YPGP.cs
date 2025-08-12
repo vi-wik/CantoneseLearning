@@ -1,7 +1,9 @@
 ﻿namespace CantoneseLearning.Model
 {
-    public class CantoneseVowel_GPYP
+    public class V_CantoneseVowel_YPGP
     {
+        public int Id { get; set; }
+        public int VowelId { get; set; }
         public string Vowel_YP { get; set; }
         public string Vowel_GP { get; set; }
     }

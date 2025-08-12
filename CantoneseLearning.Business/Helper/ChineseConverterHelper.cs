@@ -24,10 +24,10 @@ namespace CantoneseLearning.Business
                 return content;
             }
 
-            if(!HasTraditionalChar(content))
-            {
-                return content;
-            }
+            //if(!HasTraditionalChar(content))
+            //{
+            //    return content;
+            //}
 
             return ChineseConverter.Convert(content, ChineseConversionDirection.TraditionalToSimplified);
         }

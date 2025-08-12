@@ -1,4 +1,5 @@
-﻿using CantoneseLearning.Business.Model;
+﻿using CantoneseLearning.Business.Manager;
+using CantoneseLearning.Business.Model;
 using CantoneseLearning.DataAccess;
 using CantoneseLearning.Model;
 using CantoneseLearning.Participle;
@@ -35,11 +36,11 @@ namespace CantoneseLearning.Business
 
             List<SyllableDisplay> syllables = new List<SyllableDisplay>();
 
-            Action<string, V_CantoneseSyllable, IEnumerable<V_MandarinSyllable>, int> addSyllable = (matchedExample, cantoneseSyllable, mandarinWordSyllables, originalWordIndex) =>
+            Action<string, V_CantoneseWordSyllable, IEnumerable<V_MandarinWordSyllable>, int> addSyllable = (matchedExample, cantoneseSyllable, mandarinWordSyllables, originalWordIndex) =>
             {
-                V_MandarinSyllable mandarinSyllable = null;
+                V_MandarinWordSyllable mandarinSyllable = null;
 
-                int? mandarinSyllableId = cantoneseSyllable.MandarinSyllableId;
+                int? mandarinSyllableId = cantoneseSyllable.MandarinWordSyllableId;
                 bool? hasSpecial = cantoneseSyllable.HasSpecial;
 
                 if (hasSpecial.HasValue && !string.IsNullOrEmpty(matchedExample))
@@ -81,7 +82,7 @@ namespace CantoneseLearning.Business
                 int cantoneseSyllableCount = cantoneseWordSyllables.Count();
 
                 int? cantoneseSyllableId = null;
-                V_CantoneseSyllable cantoneseSyllable = null;
+                V_CantoneseWordSyllable cantoneseSyllable = null;
                 int? mandarinSyllableId = null;
 
                 string matchedExample = GetMatchedExample(content, i, cantoneseWordSyllables, out cantoneseSyllableId);
@@ -94,11 +95,11 @@ namespace CantoneseLearning.Business
 
                     if (mandarinSyllableId.HasValue && !cantoneseSyllableId.HasValue)
                     {
-                        cantoneseSyllableId = cantoneseWordSyllables.FirstOrDefault(item => item.MandarinSyllableId == mandarinSyllableId)?.Id;
+                        cantoneseSyllableId = cantoneseWordSyllables.FirstOrDefault(item => item.MandarinWordSyllableId == mandarinSyllableId)?.Id;
 
                         if (!cantoneseSyllableId.HasValue)
                         {
-                            int noRelationCount = cantoneseWordSyllables.Count(item => item.MandarinSyllableId == null);
+                            int noRelationCount = cantoneseWordSyllables.Count(item => item.MandarinWordSyllableId == null);
 
                             if (noRelationCount == 0)
                             {
@@ -180,7 +181,7 @@ namespace CantoneseLearning.Business
                 {
                     if (mandarinSyllableId.HasValue)
                     {
-                        V_MandarinSyllable mandarinSyllable = mandarinWordSyllables.FirstOrDefault(item => item.Id == mandarinSyllableId);
+                        V_MandarinWordSyllable mandarinSyllable = mandarinWordSyllables.FirstOrDefault(item => item.Id == mandarinSyllableId);
 
                         Model.SyllableDisplay syllable = GetSyllableDisplay(null, mandarinSyllable);
                         syllable.OriginalWordIndex = i;
@@ -254,7 +255,7 @@ namespace CantoneseLearning.Business
             return matchedEample;
         }
 
-        private static Model.SyllableDisplay GetSyllableDisplay(V_CantoneseSyllable cantoneseSyllable, V_MandarinSyllable mandarinSyllable)
+        private static Model.SyllableDisplay GetSyllableDisplay(V_CantoneseWordSyllable cantoneseSyllable, V_MandarinWordSyllable mandarinSyllable)
         {
             Model.SyllableDisplay syllableDisplay = new Model.SyllableDisplay()
             {
@@ -279,7 +280,7 @@ namespace CantoneseLearning.Business
             return syllableDisplay;
         }
 
-        private static string GetMandarinSyllableToneMarkDisplay(V_MandarinSyllable mandarinSyllable)
+        private static string GetMandarinSyllableToneMarkDisplay(V_MandarinWordSyllable mandarinSyllable)
         {
             if (mandarinSyllable == null)
             {
@@ -364,14 +365,14 @@ namespace CantoneseLearning.Business
             return await DbObjectsFetcher.GetMandarinVowels();
         }
 
-        public static async Task<IEnumerable<CantoneseConsonant_GPYP>> GetCantoneseConsonant_GPYPs()
+        public static async Task<IEnumerable<V_CantoneseConsonant_YPGP>> GetCantoneseConsonant_YPGPs()
         {
-            return await DbObjectsFetcher.GetCantoneseConsonant_GPYPs();
+            return await DbObjectsFetcher.GetCantoneseConsonant_YPGPs();
         }
 
-        public static async Task<IEnumerable<CantoneseVowel_GPYP>> GetCantoneseVowel_GPYPs()
+        public static async Task<IEnumerable<V_CantoneseVowel_YPGP>> GetCantoneseVowel_GPYPs()
         {
-            var results = await DbObjectsFetcher.GetCantoneseVowel_GPYPs();
+            var results = await DbObjectsFetcher.GetCantoneseVowel_YPGPs();
 
             foreach (var result in results)
             {
@@ -438,6 +439,22 @@ namespace CantoneseLearning.Business
         public static async Task<TranslationResult> Translate(TranslateType translateType, string content)
         {
             return await TranslateHelper.Translate(translateType, content);
-        }      
+        }
+
+        public static async Task<bool> HasUserDataTable(string dbFilePath)
+        {
+            return await DbObjectsFetcher.HasUserDataTable(dbFilePath, "MediaAccessHistory");
+        }
+
+        public static async Task<UserData> GetUserData(string dbFilePath)
+        {
+            UserData userData = new UserData();
+
+            userData.MediaFavoriteCategories = await DbObjectsFetcher.GetMediaFavoriteCategories(dbFilePath);
+            userData.MediaFavorites = await DbObjectsFetcher.GetMediaFavorites(dbFilePath);
+            userData.MediaAccessHistories = await DbObjectsFetcher.GetMediaAccessHistories(dbFilePath);         
+
+            return userData;
+        }
     }
 }

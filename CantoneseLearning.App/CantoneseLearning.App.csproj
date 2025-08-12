@@ -61,9 +61,6 @@
 	<ItemGroup>
 	  <None Remove=".gitattributes" />
 	  <None Remove=".gitignore" />
-	  <None Remove="Resources\Images\close.png" />
-	  <None Remove="Resources\Images\pronounce.png" />
-	  <None Remove="Resources\Images\search.png" />
 	  <None Remove="Resources\Images\toneupline.png" />
 	  <None Remove="Resources\Images\translate.png" />
 	  <None Remove="Resources\Raw\Audios\Cantonese\aa1.mp3" />
@@ -3218,13 +3215,11 @@
 	  <None Remove="Resources\Raw\Audios\Mandarin\zuo2.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\zuo3.mp3" />
 	  <None Remove="Resources\Raw\Audios\Mandarin\zuo4.mp3" />
-	  <None Remove="Resources\Raw\DbVersion.txt" />
-	  <None Remove="Resources\Raw\language.db3" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.40" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.83" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.40" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Plugin.Maui.Audio" Version="2.1.0" />
@@ -3248,6 +3243,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\Icons.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\CompareYPGP.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

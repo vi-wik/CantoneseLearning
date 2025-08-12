@@ -24,7 +24,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Entry x:Name="txtSyllable" Text="" Placeholder="请输入要查找的拼音" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" ClearButtonVisibility="WhileEditing" Completed="txtSyllable_Completed"></Entry>
-                <ImageButton  x:Name="btnSearch"  Grid.Column="1" Source="search.png"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   />
+                <ImageButton  x:Name="btnSearch"  Grid.Column="1"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   >
+                    <ImageButton.Source>
+                        <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource search}"  Color="DodgerBlue" Size="16"/>
+                    </ImageButton.Source>
+                </ImageButton>
             </Grid>            
             
             <StackLayout x:Name="PanelSpecialCharacter" RadioButtonGroup.GroupName="SyllableType" Orientation="Horizontal" Margin="0,2" IsVisible="false">
@@ -52,9 +56,19 @@
                             <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold" />
                             <Label Grid.Column="1"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End" />
                             <Label Grid.Column="2"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" />
-                            <ImageButton  Source="pronounce.png" Grid.Column="3" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0"></ImageButton>
+                            <ImageButton  Grid.Column="3" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0" BackgroundColor="Transparent">
+                                <ImageButton.Source>
+                                    <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource pronounce}"  Color="Orange" Size="10"/>
+                                </ImageButton.Source>
+                            </ImageButton>
+                            
                             <Label Grid.Column="4"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End"/>
-                            <ImageButton  Source="pronounce.png" Grid.Column="5" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0"></ImageButton>
+                            
+                            <ImageButton Grid.Column="5" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0" BackgroundColor="Transparent">
+                                <ImageButton.Source>
+                                    <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource pronounce}"  Color="Orange" Size="10"/>
+                                </ImageButton.Source>
+                        </ImageButton>
                         </Grid>                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
