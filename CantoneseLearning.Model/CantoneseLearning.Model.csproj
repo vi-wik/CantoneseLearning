@@ -9,6 +9,8 @@
     <Description>粤语学习实体模型类库</Description>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
+    <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
+    <PackageId>viwik.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
 </Project>

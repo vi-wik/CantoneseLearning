@@ -11,6 +11,8 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>  
     <FileVersion>1.0.0</FileVersion>  
     <Description>粤语学习工具类库</Description>  
+    <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>  
+    <PackageId>viwik.$(AssemblyName)</PackageId>  
   </PropertyGroup>
 
   <ItemGroup>

@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/vi-wik/CantoneseLearning</PackageProjectUrl>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
+    <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

@@ -13,6 +13,7 @@
     <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
+    <PackageId>viwik.$(AssemblyName)</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
