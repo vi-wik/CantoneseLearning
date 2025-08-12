@@ -1,7 +1,8 @@
-using CantoneseLearning.Business;
-using CantoneseLearning.Model;
+using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App
+namespace viwik.CantoneseLearning.App
 {
     public partial class Relations : ContentPage
     {
@@ -60,7 +61,7 @@ namespace CantoneseLearning.App
                     return;
                 }
 
-                AudioPlayer.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
+                AudioPlayHelper.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
             }
         }
 

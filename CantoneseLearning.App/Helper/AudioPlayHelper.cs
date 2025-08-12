@@ -1,18 +1,18 @@
 ﻿using Plugin.Maui.Audio;
 using System.Text;
 
-namespace CantoneseLearning.App
+namespace viwik.CantoneseLearning.App.Helper
 {
-    public class AudioPlayer
+    public class AudioPlayHelper
     {
         public static async void PlayPackageFile(string file)
         {
-            if(await FileSystem.AppPackageFileExistsAsync(file))
+            if (await FileSystem.AppPackageFileExistsAsync(file))
             {
                 var audioPlayer = AudioManager.Current.CreatePlayer(await FileSystem.OpenAppPackageFileAsync(file));
 
                 audioPlayer.Play();
-            }           
+            }
         }
 
         public static async void SpeechMandarin(string content)

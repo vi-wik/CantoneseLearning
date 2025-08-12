@@ -1,7 +1,8 @@
-using CantoneseLearning.Business;
-using CantoneseLearning.Model;
+using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class CompareYPGP : ContentPage
 {
@@ -41,7 +42,7 @@ public partial class CompareYPGP : ContentPage
 		{
 			var consonant = (selectedItem as V_CantoneseConsonant_YPGP).Consonant_YP;
 
-            AudioPlayer.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Consonant/{consonant}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Consonant/{consonant}.mp3");
         }
 	}
 
@@ -53,7 +54,7 @@ public partial class CompareYPGP : ContentPage
         {
             var vowel = (selectedItem as V_CantoneseVowel_YPGP).Vowel_YP;
 
-            AudioPlayer.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Vowel/{vowel}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Vowel/{vowel}.mp3");
         }
     }
 }

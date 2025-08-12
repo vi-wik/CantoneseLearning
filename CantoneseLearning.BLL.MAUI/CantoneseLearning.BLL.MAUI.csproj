@@ -4,21 +4,20 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Platforms>AnyCPU;ARM64</Platforms>
+    <AssemblyName>viwik.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>viwik.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CHTCHSConv" Version="1.0.0" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.83" />
     <PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.83" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CantoneseLearning.BLL.Core\CantoneseLearning.BLL.Core.csproj" />
     <ProjectReference Include="..\CantoneseLearning.DataAccess\CantoneseLearning.DataAccess.csproj" />
     <ProjectReference Include="..\CantoneseLearning.Data\CantoneseLearning.Data.csproj" />
     <ProjectReference Include="..\CantoneseLearning.Model\CantoneseLearning.Model.csproj" />
-    <ProjectReference Include="..\CantoneseLearning.Participle\CantoneseLearning.Participle.csproj" />
-    <ProjectReference Include="..\CantoneseLearning.Utility\CantoneseLearning.Utility.csproj" />
   </ItemGroup>
 
 </Project>

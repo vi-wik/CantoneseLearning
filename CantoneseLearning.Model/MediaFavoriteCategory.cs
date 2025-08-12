@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CantoneseLearning.Model
+namespace viwik.CantoneseLearning.Model
 {
     public class MediaFavoriteCategory
     {

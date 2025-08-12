@@ -1,6 +1,7 @@
-using CantoneseLearning.Model;
+using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class Consonants : ContentPage
 {
@@ -18,7 +19,7 @@ public partial class Consonants : ContentPage
         {
             string consonant = btn.Text.ToString();            
 
-            AudioPlayer.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Consonant/{consonant}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Consonant/{consonant}.mp3");
         }
     }
 }

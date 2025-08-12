@@ -1,6 +1,6 @@
 ﻿using System.Net.NetworkInformation;
 
-namespace CantoneseLearning.Utility
+namespace viwik.CantoneseLearning.Utility
 {
     public class StringHelper
     {

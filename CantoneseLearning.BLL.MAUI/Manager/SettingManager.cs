@@ -1,8 +1,7 @@
-﻿using CantoneseLearning.Business.Model;
-using Microsoft.Maui.Devices;
+﻿using viwik.CantoneseLearning.BLL.Core.Model;
 using Newtonsoft.Json;
 
-namespace CantoneseLearning.Business.Manager
+namespace viwik.CantoneseLearning.BLL.MAUI.Manager
 {
     public class SettingManager : FileManager
     {

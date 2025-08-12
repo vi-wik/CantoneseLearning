@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace CantoneseLearning.App
+namespace viwik.CantoneseLearning.App
 {
     [Application]
     public class MainApplication : MauiApplication

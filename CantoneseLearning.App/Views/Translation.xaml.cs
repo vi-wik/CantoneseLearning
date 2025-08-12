@@ -1,10 +1,9 @@
-﻿using CantoneseLearning.Business;
-using CantoneseLearning.Business.Model;
-using CantoneseLearning.Model;
-using CommunityToolkit.Maui.Views;
-using Microsoft.Maui.Controls;
+﻿using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App
+namespace viwik.CantoneseLearning.App
 {
     public partial class Translation : ContentPage
     {
@@ -139,7 +138,7 @@ namespace CantoneseLearning.App
                         {
                             string syllable = type == LanguageType.Mandarin ? s.Syllable_M_Full : s.SyllableFull;
 
-                            AudioPlayer.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
+                            AudioPlayHelper.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
 
                             Thread.Sleep(1000);
                         }
@@ -147,7 +146,7 @@ namespace CantoneseLearning.App
                 }
                 else
                 {
-                    AudioPlayer.SpeechMandarin(content);
+                    AudioPlayHelper.SpeechMandarin(content);
                 }               
             }
         }

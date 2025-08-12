@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Linq;
 
-namespace CantoneseLearning.Utility
+namespace viwik.CantoneseLearning.Utility
 {
     public class ObjectHelper
     {

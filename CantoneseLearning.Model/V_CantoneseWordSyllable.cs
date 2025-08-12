@@ -1,4 +1,4 @@
-﻿namespace CantoneseLearning.Model
+﻿namespace viwik.CantoneseLearning.Model
 {
     public class V_CantoneseWordSyllable : V_SyllableBase
     {

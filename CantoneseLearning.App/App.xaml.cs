@@ -1,13 +1,15 @@
-﻿using CantoneseLearning.Business;
-using CantoneseLearning.Business.Manager;
+﻿using viwik.CantoneseLearning.BLL.MAUI.Manager;
+using viwik.CantoneseLearning.DataAccess;
 
-namespace CantoneseLearning.App
+namespace viwik.CantoneseLearning.App
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
+
+            DbUtitlity.DataFilePath = DataFileManager.DataFilePath;
 
             DataFileManager.Init();
 

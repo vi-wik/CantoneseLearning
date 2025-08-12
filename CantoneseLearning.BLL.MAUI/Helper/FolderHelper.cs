@@ -1,6 +1,4 @@
-﻿using Microsoft.Maui.ApplicationModel;
-
-namespace CantoneseLearning.Business.Helper
+﻿namespace viwik.CantoneseLearning.BLL.MAUI.Helper
 {
     public class FolderHelper
     {

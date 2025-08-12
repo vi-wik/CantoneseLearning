@@ -1,6 +1,5 @@
 ﻿using System;
-
-namespace CantoneseLearning.Model
+namespace viwik.CantoneseLearning.Model
 {
     [Flags]
     public enum LogType : int

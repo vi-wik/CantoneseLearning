@@ -1,9 +1,10 @@
-using CantoneseLearning.Business;
-using CantoneseLearning.Business.Model;
-using CantoneseLearning.Model;
 using CommunityToolkit.Maui.Views;
+using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class SyllableAlternatives : Popup
 {
@@ -54,7 +55,7 @@ public partial class SyllableAlternatives : Popup
 
     private async void PlayAudios(LanguageType type)
     {
-        var syllables = this.lstSyllables.ItemsSource as IEnumerable<Model.Syllable>;
+        var syllables = this.lstSyllables.ItemsSource as IEnumerable<Syllable>;
 
         if (syllables != null)
         {
@@ -62,7 +63,7 @@ public partial class SyllableAlternatives : Popup
             {
                 string syllable = type == LanguageType.Mandarin ? s.Syllable_M_Full : s.SyllableFull;
 
-                AudioPlayer.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
+                AudioPlayHelper.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
 
                 Thread.Sleep(1000);
             }
@@ -82,7 +83,7 @@ public partial class SyllableAlternatives : Popup
                 return;
             }
 
-            AudioPlayer.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{type.ToString()}/{syllable}.mp3");
         }
     }
 

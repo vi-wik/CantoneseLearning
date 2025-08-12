@@ -1,7 +1,7 @@
 ﻿using Microsoft.International.Converters.TraditionalChineseToSimplifiedConverter;
 using System.Text.RegularExpressions;
 
-namespace CantoneseLearning.Business
+namespace viwik.CantoneseLearning.BLL.Core.Helper
 {
     public class ChineseConverterHelper
     {

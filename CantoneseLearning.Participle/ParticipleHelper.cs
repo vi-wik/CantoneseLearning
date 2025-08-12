@@ -1,10 +1,8 @@
-﻿using JiebaNet.Segmenter;
-using JiebaNet.Segmenter.PosSeg;
-using System;
+﻿using JiebaNet.Segmenter.PosSeg;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CantoneseLearning.Participle
+namespace viwik.CantoneseLearning.Participle
 {
     public class ParticipleHelper
     {

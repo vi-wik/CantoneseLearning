@@ -1,6 +1,7 @@
-using CantoneseLearning.Model;
+using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class Vowels : ContentPage
 {	
@@ -17,7 +18,7 @@ public partial class Vowels : ContentPage
         {
             string vowel = btn.Text.ToString();
 
-            AudioPlayer.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Vowel/{vowel}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Vowel/{vowel}.mp3");
         }
     }
 }

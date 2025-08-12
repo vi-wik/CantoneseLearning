@@ -1,7 +1,6 @@
-﻿using CantoneseLearning.Business.Helper;
-using Microsoft.Maui.Devices;
-using Microsoft.Maui.Storage;
-namespace CantoneseLearning.Business.Manager
+﻿using viwik.CantoneseLearning.BLL.MAUI.Helper;
+
+namespace viwik.CantoneseLearning.BLL.MAUI.Manager
 {
     public class FileManager
     {
@@ -17,7 +16,7 @@ namespace CantoneseLearning.Business.Manager
                     {
                         return folder;
                     }
-                }                
+                }
 
                 return FileSystem.Current.AppDataDirectory;
             }

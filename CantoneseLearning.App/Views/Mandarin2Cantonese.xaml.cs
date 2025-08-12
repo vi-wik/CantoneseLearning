@@ -1,6 +1,7 @@
-using CantoneseLearning.Business;
+using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.BLL.Core.Helper;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class Mandarin2Cantonese : ContentPage
 {
@@ -33,7 +34,7 @@ public partial class Mandarin2Cantonese : ContentPage
 
         foreach (var item in this.lstMandarin2Cantoneses.ItemsSource)
         {
-            var mc = item as CantoneseLearning.Model.Mandarin2Cantonese;
+            var mc = item as viwik.CantoneseLearning.Model.Mandarin2Cantonese;
 
             string mandarin = mc.Mandarin;
             string cantonese = mc.Cantonese;

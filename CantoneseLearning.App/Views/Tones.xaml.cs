@@ -1,6 +1,7 @@
-using CantoneseLearning.Model;
+using viwik.CantoneseLearning.App.Helper;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class Tones : ContentPage
 {
@@ -17,7 +18,7 @@ public partial class Tones : ContentPage
         {
             string tone = btn.Text.ToString();
 
-            AudioPlayer.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Tones/{tone}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/Tones/{tone}.mp3");
         }
     }
 }

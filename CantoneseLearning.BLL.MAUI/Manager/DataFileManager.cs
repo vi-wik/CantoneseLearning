@@ -1,13 +1,12 @@
-﻿using CantoneseLearning;
-using CantoneseLearning.DataAccess;
-using CantoneseLearning.Model;
-using Microsoft.Data.Sqlite;
-using Microsoft.Maui.Devices;
+﻿using Microsoft.Data.Sqlite;
 using System.Diagnostics;
 using System.Reflection;
+using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.Data;
+using viwik.CantoneseLearning.DataAccess;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.Business.Manager
+namespace viwik.CantoneseLearning.BLL.MAUI.Manager
 {
     public class DataFileManager : FileManager
     {

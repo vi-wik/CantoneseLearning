@@ -1,13 +1,13 @@
 ﻿using Dapper;
-using CantoneseLearning.Model;
-using CantoneseLearning.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using viwik.CantoneseLearning.Model;
+using viwik.CantoneseLearning.Utility;
 
-namespace CantoneseLearning.DataAccess
+namespace viwik.CantoneseLearning.DataAccess
 {
     public class DbExecuter
     {

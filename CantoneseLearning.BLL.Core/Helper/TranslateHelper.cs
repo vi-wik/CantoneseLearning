@@ -1,9 +1,11 @@
-﻿using CantoneseLearning.Business.Model;
-using CantoneseLearning.Model;
-using CantoneseLearning.Participle;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.BLL.Core.Helper;
+using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.Model;
+using viwik.CantoneseLearning.Participle;
 
-namespace CantoneseLearning.Business
+namespace viwik.CantoneseLearning.BLL.Core.Helper
 {
     public class TranslateHelper
     {

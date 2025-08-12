@@ -1,13 +1,11 @@
-﻿using CantoneseLearning.Business.Manager;
-using CantoneseLearning.Business.Model;
-using CantoneseLearning.DataAccess;
-using CantoneseLearning.Model;
-using CantoneseLearning.Participle;
-using CantoneseLearning.Utility;
-using System.Runtime.CompilerServices;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
+using viwik.CantoneseLearning.BLL.Core.Helper;
+using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.DataAccess;
+using viwik.CantoneseLearning.Model;
+using viwik.CantoneseLearning.Utility;
 
-namespace CantoneseLearning.Business
+namespace viwik.CantoneseLearning.BLL.Core
 {
     public class DataProcessor
     {
@@ -15,8 +13,6 @@ namespace CantoneseLearning.Business
 
         static DataProcessor()
         {
-            DbUtitlity.DataFilePath = DataFileManager.DataFilePath;
-
             Init();
         }
 

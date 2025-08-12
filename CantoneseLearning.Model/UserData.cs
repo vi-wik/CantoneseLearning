@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace CantoneseLearning.Model
+namespace viwik.CantoneseLearning.Model
 {
     public class UserData
     {

@@ -1,8 +1,6 @@
-﻿
-using CantoneseLearning.Utility;
-using Microsoft.Maui.Devices;
+﻿using viwik.CantoneseLearning.Utility;
 
-namespace CantoneseLearning.Business.Manager
+namespace viwik.CantoneseLearning.BLL.MAUI.Manager
 {
     public class LogManager : FileManager
     {
@@ -25,7 +23,7 @@ namespace CantoneseLearning.Business.Manager
             }
         }
 
-      
+
 
         static LogManager()
         {
@@ -39,23 +37,23 @@ namespace CantoneseLearning.Business.Manager
 
         public static void LogInfo(string message)
         {
-            if(IsEnableLog)
+            if (IsEnableLog)
             {
                 LogHelper.LogInfo(message, LogFilePath);
-            }           
+            }
         }
 
         public static void LogError(string message)
         {
-            if(IsEnableLog)
+            if (IsEnableLog)
             {
                 LogHelper.LogError(message, LogFilePath);
-            }           
+            }
         }
 
         public static void LogException(Exception ex)
         {
-            if(!IsEnableLog)
+            if (!IsEnableLog)
             {
                 return;
             }
@@ -66,7 +64,7 @@ namespace CantoneseLearning.Business.Manager
 
             if (currentPage != null)
             {
-                prefix = currentPage.ToString() + Environment.NewLine ;
+                prefix = currentPage.ToString() + Environment.NewLine;
             }
 
             string message = $"{prefix}{ExceptionHelper.GetExceptionDetails(ex)}";

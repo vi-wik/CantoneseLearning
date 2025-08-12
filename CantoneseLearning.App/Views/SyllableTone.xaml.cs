@@ -1,7 +1,8 @@
-using CantoneseLearning.Model;
+using viwik.CantoneseLearning.Model;
 using Microsoft.Maui.Controls.Shapes;
+using viwik.CantoneseLearning.App.Helper;
 
-namespace CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App;
 
 public partial class SyllableTone : ContentPage
 {
@@ -23,7 +24,7 @@ public partial class SyllableTone : ContentPage
                 return;
             }
 
-            AudioPlayer.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/{syllable}.mp3");
+            AudioPlayHelper.PlayPackageFile($"Audios/{LanguageType.Cantonese.ToString()}/{syllable}.mp3");
         }
     }
 }

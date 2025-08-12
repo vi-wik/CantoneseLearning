@@ -1,8 +1,8 @@
-﻿using CantoneseLearning.Model;
+﻿using viwik.CantoneseLearning.Model;
 using System;
 using System.IO;
 
-namespace CantoneseLearning.Utility
+namespace viwik.CantoneseLearning.Utility
 {
     public class LogHelper
     {

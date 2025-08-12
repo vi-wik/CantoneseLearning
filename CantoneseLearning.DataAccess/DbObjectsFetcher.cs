@@ -1,11 +1,11 @@
-﻿using CantoneseLearning.Model;
+﻿using viwik.CantoneseLearning.Model;
 using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CantoneseLearning.DataAccess
+namespace viwik.CantoneseLearning.DataAccess
 {
     public class DbObjectsFetcher
     {

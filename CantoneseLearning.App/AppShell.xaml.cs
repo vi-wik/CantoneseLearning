@@ -1,4 +1,4 @@
-﻿namespace CantoneseLearning.App
+﻿namespace viwik.CantoneseLearning.App
 {
     public partial class AppShell : Shell
     {

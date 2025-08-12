@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CantoneseLearning.Utility
+namespace viwik.CantoneseLearning.Utility
 {
     public class ExceptionHelper
     {

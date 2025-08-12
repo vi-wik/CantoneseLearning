@@ -1,7 +1,7 @@
-﻿using CantoneseLearning.Utility;
-using CantoneseLearning.Model;
+﻿using viwik.CantoneseLearning.Utility;
+using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.Business.Model
+namespace viwik.CantoneseLearning.BLL.Core.Model
 {
     public class SyllableDisplay: Syllable
     {

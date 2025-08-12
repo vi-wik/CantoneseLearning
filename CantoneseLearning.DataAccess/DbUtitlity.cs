@@ -3,7 +3,7 @@ using System;
 using System.Data.Common;
 using System.Text.RegularExpressions;
 
-namespace CantoneseLearning.DataAccess
+namespace viwik.CantoneseLearning.DataAccess
 {
     public class DbUtitlity
     {

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Plugin.Maui.Audio;
 
-namespace CantoneseLearning.App
+namespace viwik.CantoneseLearning.App
 {
     public static class MauiProgram
     {

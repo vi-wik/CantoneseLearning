@@ -1,6 +1,6 @@
-﻿using CantoneseLearning.Model;
+﻿using viwik.CantoneseLearning.Model;
 
-namespace CantoneseLearning.Model
+namespace viwik.CantoneseLearning.Model
 {
     public class Syllable: V_SyllableBase
     {

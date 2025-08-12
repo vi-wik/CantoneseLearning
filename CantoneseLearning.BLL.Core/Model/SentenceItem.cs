@@ -1,4 +1,4 @@
-﻿namespace CantoneseLearning.Business.Model
+﻿namespace viwik.CantoneseLearning.BLL.Core.Model
 {
     public class SentenceItem
     {
