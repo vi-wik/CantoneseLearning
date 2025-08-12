@@ -13,7 +13,7 @@ namespace CantoneseLearning.DataAccess
     {
         public static async Task<int> UpdateMediaSource(int id, string source)
         {
-            string sql = $"update EnglishMedia set Source =@Source where Id={id}";
+            string sql = $"update CantoneseMedia set Source =@Source where Id={id}";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("@Source", source);
