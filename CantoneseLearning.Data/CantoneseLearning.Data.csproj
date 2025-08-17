@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/vi-wik/CantoneseLearning</PackageProjectUrl>
     <Authors>vi-wik</Authors>
     <Version>1.0.0</Version>
-    <PackageId>viwik.$(AssemblyName)</PackageId>
+    <PackageId>$(AssemblyName)</PackageId>
     <Description>粤语学习数据文件</Description>
     <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
     <AssemblyVersion>1.0.0</AssemblyVersion>

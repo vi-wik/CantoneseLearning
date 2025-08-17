@@ -10,7 +10,9 @@
     <AssemblyVersion>1.0.0</AssemblyVersion>
     <FileVersion>1.0.0</FileVersion>
     <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
-    <PackageId>viwik.$(AssemblyName)</PackageId>
+    <PackageId>$(AssemblyName)</PackageId>
+    <AssemblyName>viwik.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>viwik.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
   </PropertyGroup>
 
 </Project>

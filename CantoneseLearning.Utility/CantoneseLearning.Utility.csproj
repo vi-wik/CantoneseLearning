@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>viwik.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>viwik.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-    <PackageId>viwik.$(AssemblyName)</PackageId>
+    <PackageId>$(AssemblyName)</PackageId>
     <Version>1.0.0</Version>
     <Authors>vi-wik</Authors>
     <Description>粤语学习工具类库</Description>
