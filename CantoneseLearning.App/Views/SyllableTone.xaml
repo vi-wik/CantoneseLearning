@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="viwik.CantoneseLearning.App.SyllableTone"
+             x:Class="viwik.CantoneseLearning.App.Views.SyllableTone"
              Title="">
     <ContentPage.Resources>
         <Style x:Key="RowHeaderCellLabel" TargetType="Label">
@@ -74,19 +74,19 @@
             <Button Text="零" Grid.Row="8" Grid.Column="4" CommandParameter="ling4" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
             <Button Text="五" Grid.Row="8" Grid.Column="5" CommandParameter="ng5" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
             <Button Text="二" Grid.Row="8" Grid.Column="6" CommandParameter="ji6" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
-            <Button Text="七" Grid.Row="8" Grid.Column="7" CommandParameter="cat1" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
-            <Button Text="八" Grid.Row="8" Grid.Column="8" CommandParameter="baat3" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
-            <Button Text="六" Grid.Row="8" Grid.Column="9" CommandParameter="luk6" Clicked="ToneDemoButton_Clicked" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="七" Grid.Row="8" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="八" Grid.Row="8" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
+            <Button Text="六" Grid.Row="8" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" Style="{StaticResource ToneDemoButtonStyle}"></Button>
 
-            <Label Text="saam1" Grid.Row="9" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="gau2" Grid.Row="9" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="sei3" Grid.Row="9" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="ling4" Grid.Row="9" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="ng5" Grid.Row="9" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="ji6" Grid.Row="9" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="cat1" Grid.Row="9" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="baat3" Grid.Row="9" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
-            <Label Text="luk6" Grid.Row="9" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample1"  Grid.Row="9" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample2"  Grid.Row="9" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample3"  Grid.Row="9" Grid.Column="3" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample4"  Grid.Row="9" Grid.Column="4" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample5"  Grid.Row="9" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample6"  Grid.Row="9" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample7"  Grid.Row="9" Grid.Column="7" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample8"  Grid.Row="9" Grid.Column="8" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
+            <Label x:Name="lblSample9"  Grid.Row="9" Grid.Column="9" HorizontalOptions="Center" VerticalOptions="Center" FontSize="11"></Label>
         </Grid>    
 
         <Label></Label>
@@ -96,15 +96,15 @@
              RowDefinitions="*,*"
              ColumnDefinitions="60,60,60,60">
 
-            <Label Text="粤拼：" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-            <Button Text="p" Grid.Row="0" Grid.Column="1" Style="{StaticResource ConsonantButton}"/>
-            <Button Text="t" Grid.Row="0" Grid.Column="2" Style="{StaticResource ConsonantButton}"/>
-            <Button Text="k" Grid.Row="0" Grid.Column="3" Style="{StaticResource ConsonantButton}"/>
-
-            <Label Text="广拼：" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>           
+            <Label Text="广拼：" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
             <Button Text="b" Grid.Row="1" Grid.Column="1" Style="{StaticResource ConsonantButton}"/>
             <Button Text="d" Grid.Row="1" Grid.Column="2" Style="{StaticResource ConsonantButton}" />
             <Button Text="g" Grid.Row="1" Grid.Column="3" Style="{StaticResource ConsonantButton}"/>
+
+            <Label Text="粤拼：" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Button Text="p" Grid.Row="0" Grid.Column="1" Style="{StaticResource ConsonantButton}"/>
+            <Button Text="t" Grid.Row="0" Grid.Column="2" Style="{StaticResource ConsonantButton}"/>
+            <Button Text="k" Grid.Row="0" Grid.Column="3" Style="{StaticResource ConsonantButton}"/>          
             
         </Grid>
 

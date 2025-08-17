@@ -3,7 +3,7 @@ using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.BLL.Core.Model;
 using viwik.CantoneseLearning.Model;
 
-namespace viwik.CantoneseLearning.App
+namespace viwik.CantoneseLearning.App.Views
 {
     public partial class Translation : ContentPage
     {

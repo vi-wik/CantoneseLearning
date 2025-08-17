@@ -53,6 +53,9 @@ namespace viwik.CantoneseLearning.BLL.Core.Model
             }
         }
 
+        public string Dynamic_Display { get; set; }
+        
+
         public string GetDisplayCantoneseSyllable_GP()
         {
             if (this == null)

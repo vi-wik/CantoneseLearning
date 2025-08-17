@@ -2,12 +2,14 @@ using CommunityToolkit.Maui.Views;
 using viwik.CantoneseLearning.App.Helper;
 using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.BLL.MAUI.Manager;
 using viwik.CantoneseLearning.Model;
 
-namespace viwik.CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App.Views;
 
 public partial class SyllableAlternatives : Popup
 {
+    private SettingInfo setting;
     private SyllableDisplay syllable;
 
     public SyllableAlternatives()
@@ -31,12 +33,19 @@ public partial class SyllableAlternatives : Popup
 
     private async void LoadData()
     {
+        this.setting = SettingManager.GetSetting();
+
         if (this.syllable != null)
         {
             this.lblWord.Text = syllable.Word;
             this.lblDescription.Text = $"({syllable.SyllableFull_Display})µÄÒì¶ÁÒôÓÐ£º";
 
             var syllables = await DataProcessor.GetCantoneseSyllableAlts(this.syllable.Id);
+
+            foreach (var syllable in syllables)
+            {
+                syllable.Dynamic_Display = this.setting.PinYinMode == PinYinMode.GP ? syllable.SyllableFull_GP_Display : syllable.SyllableFull_Display;
+            }
 
             this.lstSyllables.ItemsSource = syllables;
             this.BatchPronounceGrid.IsVisible = syllables.Count() > 1;

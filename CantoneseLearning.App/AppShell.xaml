@@ -3,7 +3,7 @@
     x:Class="viwik.CantoneseLearning.App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:viwik.CantoneseLearning.App"
+    xmlns:local="clr-namespace:viwik.CantoneseLearning.App.Views"   
     Shell.FlyoutBehavior="Disabled"
     Title="">
 
@@ -13,13 +13,18 @@
             <Tab.Icon>
                 <FontImageSource FontFamily="FASolid" Glyph="{StaticResource home}"  />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"  Route="MainPage" />
+            <ShellContent Title="字词" ContentTemplate="{DataTemplate local:MainPage}"  Route="MainPage" />
+            <ShellContent Title="翻译" ContentTemplate="{DataTemplate local:Translation}"  Route="Translation" />
+            <ShellContent Title="普粤对照" ContentTemplate="{DataTemplate local:Mandarin2Cantonese}" Route="Mandarin2Cantonese" />
         </Tab>
-        <Tab Title="翻译">
+        <Tab Title="学习">
             <Tab.Icon>
-                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource translate}"  />
+                <FontImageSource FontFamily="FASolid" Glyph="{StaticResource learn}"  />
             </Tab.Icon>
-            <ShellContent ContentTemplate="{DataTemplate local:Translation}"  Route="Translation" />
+            <ShellContent  Title="声调" ContentTemplate="{DataTemplate local:Subject }" Route="Intonation"  />
+            <!--<ShellContent  Title="发音" ContentTemplate="{DataTemplate local:Subject }" Route="Pronunciation" />-->
+            <ShellContent  Title="音素" ContentTemplate="{DataTemplate local:PhoneticAlphabet }" Route="PhoneticAlphabet" />
+            <ShellContent  Title="语法" ContentTemplate="{DataTemplate local:Subject }" Route="Grammar" />
         </Tab>
         <Tab Title="发音">
             <Tab.Icon>
@@ -34,16 +39,15 @@
                 <FontImageSource FontFamily="FASolid" Glyph="{StaticResource book}"  />
             </Tab.Icon>
             <ShellContent  Title="声调" ContentTemplate="{DataTemplate local:SyllableTone}" Route="SyllableTone" />
-            <ShellContent  Title="粤拼广拼对照" ContentTemplate="{DataTemplate local:CompareYPGP}" Route="CompareYPGP" />
-            <ShellContent  Title="普通话粤语对照" ContentTemplate="{DataTemplate local:Mandarin2Cantonese}" Route="Mandarin2Cantonese" />
+            <ShellContent  Title="粤拼广拼对照" ContentTemplate="{DataTemplate local:CompareYPGP}" Route="CompareYPGP" />           
             <ShellContent  Title ="关联" ContentTemplate="{DataTemplate local:Relations}"  Route="Relations" />
         </Tab>       
-        <!--<Tab Title="我的">
+        <Tab Title="我的">
             <Tab.Icon>
                 <FontImageSource FontFamily="FASolid" Glyph="{StaticResource user}"  />
             </Tab.Icon>
             <ShellContent  Title="我的" ContentTemplate="{DataTemplate local:My }" Route="My" />
-        </Tab>-->
+        </Tab>
     </TabBar>  
 
 </Shell>

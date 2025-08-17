@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Microsoft.Data.Sqlite;
+using System.Text.RegularExpressions;
 using viwik.CantoneseLearning.BLL.Core.Helper;
 using viwik.CantoneseLearning.BLL.Core.Model;
 using viwik.CantoneseLearning.DataAccess;
@@ -451,6 +452,191 @@ namespace viwik.CantoneseLearning.BLL.Core
             userData.MediaAccessHistories = await DbObjectsFetcher.GetMediaAccessHistories(dbFilePath);         
 
             return userData;
+        }
+
+        public static async Task<CantoneseMediaExtraInfo> GetCantoneseMediaExtraInfo(int medialId)
+        {
+            return await DbObjectsFetcher.GetCantoneseMediaExtraInfo(medialId);
+        }
+
+        public static async Task<int> UpdateMediaSource(int id, string source)
+        {
+            return await DbExecuter.UpdateMediaSource(id, source);
+        }
+
+        public static async Task<int> RecordMediaAccessHistory(MediaAccessHistory mediaAccessHistory)
+        {
+            return await DbExecuter.RecordMediaAccessHistory(mediaAccessHistory);
+        }
+
+        public static async Task<MediaFavorite> GetMediaFavoriteByMediaId(int mediaId)
+        {
+            return await DbObjectsFetcher.GetMediaFavoriteByMediaId(mediaId);
+        }
+
+        public static async Task<IEnumerable<MediaFavoriteCategory>> GetMediaFavoriteCategories()
+        {
+            return await DbObjectsFetcher.GetMediaFavoriteCategories();
+        }
+
+        public static async Task<bool> AddMediaFavorite(int mediaId, int categoryId)
+        {
+            return await DbExecuter.AddMediaFavorite(mediaId, categoryId);
+        }
+
+        public static async Task<bool> DeleteMediaFavorite(int id)
+        {
+            return await DbExecuter.DeleteMediaFavorite(id);
+        }
+
+        public static async Task<CantoneseSubject> GetCantoneseSubject(int subjectId)
+        {
+            return await DbObjectsFetcher.GetCantoneseSubject(subjectId);
+        }
+
+        public static async Task<CantoneseSubject> GetCantoneseSubjectByEnName(string enName)
+        {
+            return await DbObjectsFetcher.GetCantoneseSubjectByEnName(enName);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseSubjectMedia>> GetVCantoneseSubjectMedias(int subjectId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseSubjectMedias(subjectId);
+        }
+
+        public static async Task<IEnumerable<CantoneseTopic>> GetCantoneseTopics(int subjectId)
+        {
+            return await DbObjectsFetcher.GetCantoneseTopics(subjectId);
+        }
+
+        public static async Task<IEnumerable<CantoneseTopicDetail>> GetCantoneseTopicDetails(int topicId, string keyword = null)
+        {
+            return await DbObjectsFetcher.GetCantoneseTopicDetails(topicId, keyword);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseTopicDetailMedia>> GetVCantoneseTopicDetailMedias(int topicId, string keyword = null)
+        {
+            return await DbObjectsFetcher.GetVCantoneseTopicDetailMedias(topicId, keyword);
+        }
+      
+
+        public static async Task<IEnumerable<V_CantoneseTopicDetailMediaPlayTime>> GetVCantoneseTopicDetailMediaPlayTimes(int topicDetailMediaId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseTopicDetailMediaPlayTimes(topicDetailMediaId);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseTopicDetailMediaPlayTime>> GetVCantoneseSubjectMediaPlayTimes(int subjectMediaId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseSubjectMediaPlayTimes(subjectMediaId);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVocabularyMedia>> GetVVocabularyMedias(int vocabularyId)
+        {
+            return await DbObjectsFetcher.GetVVocabularyMedias(vocabularyId);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVocabularyMediaPlayTime>> GetVCantoneseVocabularyMediaPlayTimes(int vocabularyMediaId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseVocabularyMediaPlayTimes(vocabularyMediaId);
+        }
+
+        public static async Task<IEnumerable<CantoneseConsonant>> GetCantoneseConsonants()
+        {
+            return await DbObjectsFetcher.GetCantoneseConsonants();
+        }
+
+        public static async Task<IEnumerable<CantoneseVowel>> GetCantoneseVowels()
+        {
+            return await DbObjectsFetcher.GetCantoneseVowels();
+        }
+
+        public static async Task<IEnumerable<V_CantoneseConsonantMedia>> GetVCantoneseConsonantMedias(int consonantId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseConsonantMedias(consonantId);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVowelMedia>> GetVCantoneseVowelMedias(int vowelId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseVowelMedias(vowelId);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseConsonantMediaPlayTime>> GetVCantoneseConsonantMediaPlayTimes(int consonantMediaId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseConsonantMediaPlayTimes(consonantMediaId);
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVowelMediaPlayTime>> GetVCantoneseVowelMediaPlayTimes(int vowelMediaId)
+        {
+            return await DbObjectsFetcher.GetVCantoneseVowelMediaPlayTimes(vowelMediaId);
+        }
+
+        public static void ClearSqliteAllPools()
+        {
+            SqliteConnection.ClearAllPools();
+        }
+
+        public static async Task<int> ImportUserData(string sourceDbFilePath, string targetDbFilePath)
+        {
+            if (!File.Exists(targetDbFilePath))
+            {
+                return 0;
+            }
+
+            if (await DataProcessor.HasUserDataTable(targetDbFilePath))
+            {
+                UserData userData = await GetUserData(sourceDbFilePath);
+
+                ClearSqliteAllPools();
+
+                return await DbExecuter.KeepUserData(userData, targetDbFilePath);
+            }
+
+            return 0;
+        }
+
+        public static async Task<int> ClearMediaAccessHistories()
+        {
+            return await DbExecuter.ClearMediaAccessHistories();
+        }
+
+        public static async Task<int> DeleteMediaAccessHistoriesByMediaIds(List<int> mediaIds)
+        {
+            return await DbExecuter.DeleteMediaAccessHistoriesByMediaIds(mediaIds);
+        }
+
+        public static async Task<IEnumerable<V_MediaAccessHistory>> GetVMediaAccessHistories()
+        {
+            return await DbObjectsFetcher.GetVMediaAccessHistories();
+        }
+
+        public static async Task<IEnumerable<V_MediaFavorite>> GetVMediaFavorites()
+        {
+            return await DbObjectsFetcher.GetVMediaFavorites();
+        }
+
+        public static async Task<bool> AddMediaFavoriteCategory(MediaFavoriteCategory category)
+        {
+            return await DbExecuter.AddMediaFavoriteCategory(category);
+        }
+
+        public static async Task<bool> IsMediaFavoriteCategoryNameExisting(bool isAdd, string name, int? id)
+        {
+            return await DbObjectsFetcher.IsMediaFavoriteCategoryNameExisting(isAdd, name, id);
+        }
+
+        public static async Task<bool> RenameMediaFavoriteCategory(int id, string name)
+        {
+            return await DbExecuter.RenameMediaFavoriteCategory(id, name);
+        }
+
+        public static async Task<int> DeleteMediaFavoriteCategoriesByIds(List<int> ids)
+        {
+            return await DbExecuter.DeleteMediaFavoriteCategoriesByIds(ids);
+        }
+
+        public static async Task<bool> IsMediaFavoriteCategoryBeRefered(List<int> ids)
+        {
+            return await DbObjectsFetcher.IsMediaFavoriteCategoryBeRefering(ids);
         }
     }
 }

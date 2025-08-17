@@ -1,83 +1,127 @@
 using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.BLL.Core.Helper;
+using viwik.CantoneseLearning.Model;
 
-namespace viwik.CantoneseLearning.App;
+namespace viwik.CantoneseLearning.App.Views;
 
 public partial class Mandarin2Cantonese : ContentPage
 {
-	public Mandarin2Cantonese()
-	{
-		InitializeComponent();
+    IEnumerable<V_Mandarin2Cantonese> records = null;
+
+    public Mandarin2Cantonese()
+    {
+        InitializeComponent();
 
         this.LoadDataAsync();
     }
 
-	private async Task LoadDataAsync()
-	{
-        var records = await DataProcessor.GetMandarin2Cantoneses();
+    private async Task LoadDataAsync()
+    {
+        this.records = await DataProcessor.GetVMandarin2Cantoneses();
 
         this.lstMandarin2Cantoneses.ItemsSource = records;
     }
 
-    private async void OnSearchButtonClicked(object sender, EventArgs e)
+    private void OnSearchButtonClicked(object sender, EventArgs e)
+    {
+        this.Search();
+    }
+
+    private void txtWord_Completed(object sender, EventArgs e)
+    {
+        this.Search();
+    }
+
+    private async void Search()
     {
         string word = this.txtWord.Text.Trim();
-        bool isMandarin = this.chkSearchMandarin.IsChecked;
+        //bool isMandarin = this.chkSearchMandarin.IsChecked;
 
-        if(string.IsNullOrEmpty(word))
+        if (string.IsNullOrEmpty(word))
         {
             await DisplayAlert("提示", "请输入查询内容！", "确定");
             return;
         }
 
-        bool matched = false;
+        List<Mandarin2CantoneseResult> list = new List<Mandarin2CantoneseResult>();
 
-        foreach (var item in this.lstMandarin2Cantoneses.ItemsSource)
+        foreach (var item in this.records)
         {
-            var mc = item as viwik.CantoneseLearning.Model.Mandarin2Cantonese;
+            var mc = item as V_Mandarin2Cantonese;
+
+            ResultMatchType matchType = ResultMatchType.None;
 
             string mandarin = mc.Mandarin;
             string cantonese = mc.Cantonese;
 
-            if(isMandarin)
-            {
-                if(this.IsMatched(word, mandarin, mc.MandarinSynonym))
-                {
-                    matched = true;
-                }
-            }    
-            else
-            {
-                if(this.IsMatched(word, cantonese, mc.CantoneseSynonym))
-                {
-                    matched = true;
-                }
-            }
+            matchType = this.Match(word, mandarin, mc.MandarinSynonym);
 
-            if(matched)
+            if (matchType == ResultMatchType.None)
             {
-                this.lstMandarin2Cantoneses.SelectedItem = item;
-                this.lstMandarin2Cantoneses.ScrollTo(item, ScrollToPosition.Start, false);
-                break;
+                matchType = this.Match(word, cantonese, mc.CantoneseSynonym);
+            }           
+
+            if (matchType != ResultMatchType.None)
+            {
+                list.Add(new Mandarin2CantoneseResult() { Content = mc, MatchType = matchType });
             }
         }
 
-        if(!matched)
-        {
-            this.lstMandarin2Cantoneses.SelectedItem = null;
-            await DisplayAlert("提示", "未找到任何匹配项！", "确定");            
-        }
+        this.lstMandarin2Cantoneses.ItemsSource = list.OrderBy(item => item.MatchType).Select(item => item.Content);
     }
 
-    private bool IsMatched(string search, string content, string synonym)
+    private ResultMatchType Match(string search, string content, string synonym)
     {
         var items = TranslateHelper.GetItemsBySynonym(content, synonym);
 
-        if(items.Contains(search))
+        if (items.Contains(search))
         {
-            return true;
+            return ResultMatchType.FullMatch;
+        }
+        else if (items.Any(item => item.Contains(search)))
+        {
+            return ResultMatchType.FuzzyMatch;
         }
 
-        return false;
+        return ResultMatchType.None;
     }
+
+    private async void OnShowMediaButtonClicked(object sender, EventArgs e)
+    {
+        ImageButton btn = sender as ImageButton;
+
+        V_Mandarin2Cantonese mandarin2Cantonese = btn.BindingContext as V_Mandarin2Cantonese;
+
+        if (mandarin2Cantonese != null)
+        {
+            var medias = await DataProcessor.GetVVocabularyMedias(mandarin2Cantonese.Id);      
+
+            MediaList mediaList = (MediaList)Activator.CreateInstance(typeof(MediaList), medias);
+
+            mediaList.Title = mandarin2Cantonese.Cantonese;
+
+            await Navigation.PushAsync(mediaList);
+        }       
+    }
+
+    private void txtWord_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (string.IsNullOrEmpty(this.txtWord.Text?.Trim()))
+        {
+            this.lstMandarin2Cantoneses.ItemsSource = this.records;
+        }
+    }
+
+    internal class Mandarin2CantoneseResult
+    {
+        public V_Mandarin2Cantonese Content { get; set; }
+        public ResultMatchType MatchType { get; set; }
+    }
+
+    internal enum ResultMatchType
+    {
+        None = 0,
+        FullMatch = 1,
+        FuzzyMatch = 2
+    }   
 }

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="viwik.CantoneseLearning.App.MainPage">
+             x:Class="viwik.CantoneseLearning.App.Views.MainPage"
+             Title="">
 
     <Grid RowDefinitions="Auto,*">
         <VerticalStackLayout Grid.Row="0">
@@ -13,9 +14,9 @@
                 </Grid.ColumnDefinitions>
 
                 <Entry x:Name="txtWord" Text="" Grid.Column="0" Placeholder="请输入要查找的字" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default"  ClearButtonVisibility="WhileEditing" Completed="txtWord_Completed"></Entry>
-                <ImageButton  x:Name="btnSearch"  Grid.Column="1"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   >
+                <ImageButton  x:Name="btnSearch"  Grid.Column="1"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"  BackgroundColor="Transparent" >
                     <ImageButton.Source>
-                        <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource search}"  Color="DodgerBlue" Size="16"/>
+                        <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource search}"  Color="DodgerBlue" Size="10"/>
                     </ImageButton.Source>
                 </ImageButton>
             </Grid>
@@ -48,27 +49,25 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="30" />
                             <ColumnDefinition Width="30" />
-                            <ColumnDefinition Width="70" />
-                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="Auto" />                         
                             <ColumnDefinition Width="40" />
                             <ColumnDefinition Width="80" />
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="40" />
                         </Grid.ColumnDefinitions>
 
                         <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold"/>
                         <Label Grid.Column="1"  Text="异读" FontSize="13"  FontAttributes="Bold" HorizontalTextAlignment="Start" TextColor="LightBlue" VerticalTextAlignment="End"  IsVisible="{Binding HasAlt}" />
-                        <Label Grid.Column="2"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End" />
-                        <Label Grid.Column="3"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                        <Label Grid.Column="2"  Text="{Binding Dynamic_Display}" FontSize="18" HorizontalTextAlignment="End" />                      
                         
-                        <ImageButton Grid.Column="4" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0" BackgroundColor="Transparent">
+                        <ImageButton Grid.Column="3" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0" BackgroundColor="Transparent">
                             <ImageButton.Source>
                                 <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource pronounce}"  Color="Orange" Size="10"/>
                             </ImageButton.Source>
                         </ImageButton>
                         
-                        <Label Grid.Column="5"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End"/>
+                        <Label Grid.Column="4"  Text="{Binding Syllable_M_Full_ToneMark}" FontSize="18" HorizontalTextAlignment="End"/>
                         
-                        <ImageButton  Grid.Column="6" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0" BackgroundColor="Transparent">
+                        <ImageButton  Grid.Column="5" HeightRequest="20" WidthRequest="20" Clicked="OnMandarinPronounceButtonClicked" CommandParameter="{Binding Syllable_M_Full}" IsVisible="{Binding HasSyllable_M}" Margin="5,0" BackgroundColor="Transparent">
                             <ImageButton.Source>
                                 <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource pronounce}"  Color="Orange" Size="10"/>
                             </ImageButton.Source>

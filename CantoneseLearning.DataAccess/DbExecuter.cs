@@ -329,5 +329,6 @@ namespace viwik.CantoneseLearning.DataAccess
                 return affectedRows;
             }
         }      
+
     }
 }

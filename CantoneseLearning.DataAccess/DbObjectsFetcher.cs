@@ -1,9 +1,9 @@
-﻿using viwik.CantoneseLearning.Model;
+﻿using CantoneseLearning.Model;
 using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using viwik.CantoneseLearning.Model;
 
 namespace viwik.CantoneseLearning.DataAccess
 {
@@ -216,6 +216,287 @@ namespace viwik.CantoneseLearning.DataAccess
                 string sql = "SELECT * from MediaAccessHistory";
 
                 return await connection.QueryAsync<MediaAccessHistory>(sql);
+            }
+        }
+
+        public static async Task<IEnumerable<CantonesePlatform>> GetCantonesePlatforms()
+        {
+            string sql = "select * from CantonesePlatform";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantonesePlatform>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseMediaType>> GetCantoneseMediaTypes()
+        {
+            string sql = "select * from CantoneseMediaType";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseMediaType>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseTeacher>> GetCantoneseTeachers()
+        {
+            string sql = "select * from CantoneseTeacher";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseTeacher>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseSubject>> GetCantoneseSubjects()
+        {
+            string sql = $"select * from CantoneseSubject order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseSubject>(sql));
+            }
+        }
+
+        public static async Task<CantoneseSubject> GetCantoneseSubject(int subjectId)
+        {
+            string sql = $"select * from CantoneseSubject where Id={subjectId}";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseSubject>(sql))?.FirstOrDefault();
+            }
+        }
+
+        public static async Task<CantoneseSubject> GetCantoneseSubjectByEnName(string enName)
+        {
+            string sql = "select * from CantoneseSubject where Name_EN=@EnName";
+
+            Dictionary<string, object> para = new Dictionary<string, object>();
+            para.Add("EnName", enName);
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseSubject>(sql, para)).FirstOrDefault();
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseSubjectMedia>> GetVCantoneseSubjectMedias(int subjectId)
+        {
+            string sql = $"select * from V_CantoneseSubjectMedia where SubjectId={subjectId} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseSubjectMedia>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseTopic>> GetCantoneseTopics(int subjectId)
+        {
+            string sql = $"select * from CantoneseTopic where SubjectId={subjectId} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseTopic>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseTopicDetail>> GetCantoneseTopicDetails(int topicId, string keyword = null)
+        {
+            keyword = DbUtitlity.GetSafeValue(keyword);
+
+            string keywordCondition = string.IsNullOrEmpty(keyword) ? "" : $"and Name like '%{keyword}%'";
+
+            string sql = $"select * from CantoneseTopicDetail where TopicId={topicId} {keywordCondition} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseTopicDetail>(sql));
+            }
+        }
+
+        public static async Task<CantoneseMediaExtraInfo> GetCantoneseMediaExtraInfo(int medialId)
+        {
+            string sql = $"select * from CantoneseMediaExtraInfo where MediaId={medialId}";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseMediaExtraInfo>(sql))?.FirstOrDefault();
+            }
+        }
+
+        public static async Task<MediaFavorite> GetMediaFavoriteByMediaId(int mediaId)
+        {
+            string sql = $"select * from MediaFavorite where MediaId={mediaId}";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<MediaFavorite>(sql))?.FirstOrDefault();
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseTopicDetailMedia>> GetVCantoneseTopicDetailMedias(int topicId, string keyword = null)
+        {
+            keyword = DbUtitlity.GetSafeValue(keyword);
+
+            string keywordCondition = string.IsNullOrEmpty(keyword) ? "" : $"and ((MediaTitleExt is not null and MediaTitleExt like '%{keyword}%') or (MediaTitleExt is null and MediaTitle like '%{keyword}%'))";
+
+            string sql = $"select * from V_CantoneseTopicDetailMedia where TopicId={topicId} {keywordCondition} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseTopicDetailMedia>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseTopicDetailMediaPlayTime>> GetVCantoneseTopicDetailMediaPlayTimes(int topicDetailMediaId)
+        {
+            string sql = $"select * from V_CantoneseTopicDetailMediaPlayTime where TopicDetailMediaId={topicDetailMediaId} order by StartTime";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseTopicDetailMediaPlayTime>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseTopicDetailMediaPlayTime>> GetVCantoneseSubjectMediaPlayTimes(int subjectMediaId)
+        {
+            string sql = $"select * from V_CantoneseSubjectMediaPlayTime where SubjectMediaId={subjectMediaId} order by StartTime";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseTopicDetailMediaPlayTime>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVocabularyMedia>> GetVVocabularyMedias(int vocabularyId)
+        {
+            string sql = $"select * from V_CantoneseVocabularyMedia where VocabularyId={vocabularyId} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseVocabularyMedia>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVocabularyMediaPlayTime>> GetVCantoneseVocabularyMediaPlayTimes(int vocabularyMediaId)
+        {
+            string sql = $"select * from V_CantoneseVocabularyMediaPlayTime where VocabularyMediaId={vocabularyMediaId} order by StartTime";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseVocabularyMediaPlayTime>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseConsonant>> GetCantoneseConsonants()
+        {
+            string sql = "select * from CantoneseConsonant order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseConsonant>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseVowel>> GetCantoneseVowels()
+        {
+            string sql = $@"select * from CantoneseVowel order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<CantoneseVowel>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseConsonantMedia>> GetVCantoneseConsonantMedias(int constantId)
+        {
+            string sql = $"select * from V_CantoneseConsonantMedia where ConsonantId={constantId} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseConsonantMedia>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVowelMedia>> GetVCantoneseVowelMedias(int vowelId)
+        {
+            string sql = $"select * from V_CantoneseVowelMedia where VowelId={vowelId} order by Priority";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseVowelMedia>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseConsonantMediaPlayTime>> GetVCantoneseConsonantMediaPlayTimes(int consonantMediaId)
+        {
+            string sql = $"select * from V_CantoneseConsonantMediaPlayTime where ConsonantMediaId={consonantMediaId} order by StartTime";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseConsonantMediaPlayTime>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_CantoneseVowelMediaPlayTime>> GetVCantoneseVowelMediaPlayTimes(int vowelMediaId)
+        {
+            string sql = $"select * from V_CantoneseVowelMediaPlayTime where VowelMediaId={vowelMediaId} order by StartTime";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return (await connection.QueryAsync<V_CantoneseVowelMediaPlayTime>(sql));
+            }
+        }
+
+        public static async Task<IEnumerable<V_MediaAccessHistory>> GetVMediaAccessHistories()
+        {
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                string sql = "SELECT * from V_MediaAccessHistory";
+
+                return await connection.QueryAsync<V_MediaAccessHistory>(sql);
+            }
+        }
+
+        public static async Task<IEnumerable<V_MediaFavorite>> GetVMediaFavorites()
+        {
+            string sql = $"select * from V_MediaFavorite";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return await connection.QueryAsync<V_MediaFavorite>(sql);
+            }
+        }
+
+        public static async Task<bool> IsMediaFavoriteCategoryNameExisting(bool isAdd, string name, int? id)
+        {
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                string sql = $"select 1 from MediaFavoriteCategory where Name=@Name";
+
+                if (!isAdd)
+                {
+                    sql += $" and Id<>{id}";
+                }
+
+                Dictionary<string, object> para = new Dictionary<string, object>();
+                para.Add("@Name", name);
+
+                return (await connection.QueryAsync<bool>(sql, para))?.FirstOrDefault() == true;
+            }
+        }
+
+        public static async Task<bool> IsMediaFavoriteCategoryBeRefering(List<int> ids)
+        {
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                string sql = $"select count(1) as Num from MediaFavorite where CategoryId in({string.Join(",", ids)})";
+
+                int? num = (await connection.QueryAsync<int>(sql))?.FirstOrDefault();
+
+                return num > 0;
             }
         }
     }

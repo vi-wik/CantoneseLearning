@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="viwik.CantoneseLearning.App.Relations"
+             x:Class="viwik.CantoneseLearning.App.Views.Relations"
              Title="">
     <ContentPage.Resources>
         <Style x:Key="SpecialCharacterButtonStyle" BasedOn="{StaticResource ConsonantButton}" TargetType="Button">
@@ -13,8 +13,8 @@
         <VerticalStackLayout Grid.Row="0">
             <StackLayout RadioButtonGroup.GroupName="SyllableType" Orientation="Horizontal" Margin="0,2">
                 <RadioButton IsChecked="True" Value="Mandarin" Content="普拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>
-                <RadioButton Value="Cantonese_YP" Content="粤拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>
                 <RadioButton Value="Cantonese_GP" Content="广拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>
+                <RadioButton Value="Cantonese_YP" Content="粤拼" CheckedChanged="OnSyllableTypeRadioButtonCheckedChanged"></RadioButton>              
             </StackLayout>
 
             <Grid>
@@ -39,6 +39,25 @@
         </VerticalStackLayout>
 
         <CollectionView x:Name="lstSyllables" Grid.Row="1" Style="{StaticResource DefaultCollectionView}">
+            <CollectionView.Header>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="lblHeaderGP" IsVisible="False" Text="广拼" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="End"/>
+                    <Label x:Name="lblHeaderYP" IsVisible="False" Text="粤拼" FontAttributes="Bold" Grid.Column="2" HorizontalTextAlignment="End"/>
+                    <Label x:Name="lblHeaderPP" IsVisible="False" Text="普拼" FontAttributes="Bold" Grid.Column="4" HorizontalTextAlignment="End"/>
+                </Grid>
+            </CollectionView.Header>
             <CollectionView.ItemTemplate>
                 <DataTemplate>                   
                         <Grid Padding="10">
@@ -54,8 +73,10 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Word}" FontSize="20"  FontAttributes="Bold" />
-                            <Label Grid.Column="1"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End" />
-                            <Label Grid.Column="2"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                           
+                            <Label Grid.Column="1"  Text="{Binding SyllableFull_GP_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                            <Label Grid.Column="2"  Text="{Binding SyllableFull_Display}" FontSize="18" HorizontalTextAlignment="End" />
+                            
                             <ImageButton  Grid.Column="3" HeightRequest="20" WidthRequest="20" Clicked="OnCantonesePronounceButtonClicked" CommandParameter="{Binding SyllableFull}" IsVisible="{Binding HasSyllable}" Margin="5,0" BackgroundColor="Transparent">
                                 <ImageButton.Source>
                                     <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource pronounce}"  Color="Orange" Size="10"/>

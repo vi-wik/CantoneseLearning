@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="viwik.CantoneseLearning.App.Mandarin2Cantonese"
+             x:Class="viwik.CantoneseLearning.App.Views.Mandarin2Cantonese"
              Title="">
 
     <Grid RowDefinitions="Auto,*" Grid.Column="0">
         <VerticalStackLayout Grid.Row="0">
-            <HorizontalStackLayout>
+            <!--<HorizontalStackLayout>
                 <Label Text="查找普通话：" VerticalOptions="Center"></Label>
                 <CheckBox x:Name="chkSearchMandarin" IsChecked="True"/>
-            </HorizontalStackLayout>
+            </HorizontalStackLayout>-->
 
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -17,7 +17,7 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Editor x:Name="txtWord" Text="" Placeholder="请输入要查找的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" AutoSize="TextChanges"></Editor>
+                <Entry x:Name="txtWord" Text="" Placeholder="请输入要查找的内容" PlaceholderColor="LightGray" HorizontalTextAlignment="Start" Keyboard="Default" BackgroundColor="Transparent" ClearButtonVisibility="WhileEditing" Completed="txtWord_Completed" TextChanged="txtWord_TextChanged" ></Entry>
             
                 <ImageButton  x:Name="btnSearch"  Grid.Column="1"  WidthRequest="20" HeightRequest="20"  Clicked="OnSearchButtonClicked"   >
                     <ImageButton.Source>
@@ -35,12 +35,13 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.5*" />
-                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="4.5*" />
+                        <ColumnDefinition Width="4.5*" />
+                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
 
                     <Label Text="普通话" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Start"/>
-                    <Label Text="粤语" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                    <Label Text="粤语" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Start"/>                   
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -51,12 +52,19 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.5*" />
-                                <ColumnDefinition Width="0.5*" />
+                                <ColumnDefinition Width="4.5*" />
+                                <ColumnDefinition Width="4.5*" />
+                                <ColumnDefinition Width="1*" />                              
                             </Grid.ColumnDefinitions>
 
                             <Label Text="{Binding Mandarin}"  Grid.Column="0" HorizontalTextAlignment="Start"/>
                             <Label Text="{Binding Cantonese}" Grid.Column="1" HorizontalTextAlignment="Start"/>
+
+                            <ImageButton  x:Name="btnShowMedia"  Grid.Column="2" IsVisible="{Binding HasMedia}"  WidthRequest="20" HeightRequest="20"  Clicked="OnShowMediaButtonClicked"   >
+                                <ImageButton.Source>
+                                    <FontImageSource   FontFamily="FASolid" Glyph="{StaticResource film}"  Color="DodgerBlue" Size="10"/>
+                                </ImageButton.Source>
+                            </ImageButton>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="viwik.CantoneseLearning.App.Views.CommonSetting"
+             Title="通用设置">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="*,*" Margin="5,2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+            </Grid.ColumnDefinitions>          
+
+            <Label VerticalOptions="Center" Grid.Row="0">启用日志</Label>
+            <CheckBox x:Name="chkEnableLog" Grid.Column="1" Grid.Row="4" CheckedChanged="chkEnableLog_CheckedChanged"></CheckBox>
+
+            <HorizontalStackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                <Label VerticalOptions="Center" Grid.Row="5">拼音默认显示方案：</Label>
+
+                <Label VerticalOptions="Center" Grid.Row="5">广拼</Label>
+                <RadioButton x:Name="rbPinYinMode_GP"  VerticalOptions="Center" CheckedChanged="rbPinYinMode_CheckedChanged" Value="1" GroupName="PinYinMode" IsChecked="True"></RadioButton>
+
+                <Label VerticalOptions="Center" Grid.Row="5">粤拼</Label>
+                <RadioButton x:Name="rbPinYinMode_YP"  VerticalOptions="Center" CheckedChanged="rbPinYinMode_CheckedChanged" Value="2"  GroupName="PinYinMode"></RadioButton>
+            </HorizontalStackLayout>    
+            
+        </Grid>        
+       
+    </VerticalStackLayout>
+</ContentPage>

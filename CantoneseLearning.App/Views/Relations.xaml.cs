@@ -2,7 +2,7 @@ using viwik.CantoneseLearning.App.Helper;
 using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.Model;
 
-namespace viwik.CantoneseLearning.App
+namespace viwik.CantoneseLearning.App.Views
 {
     public partial class Relations : ContentPage
     {
@@ -10,7 +10,7 @@ namespace viwik.CantoneseLearning.App
 
         public Relations()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void OnSearchButtonClicked(object sender, EventArgs e)
@@ -32,7 +32,13 @@ namespace viwik.CantoneseLearning.App
 
             this.lstSyllables.ItemsSource = syllables;
 
-            if (syllables.Count() == 0)
+            int count = syllables.Count();
+
+            this.lblHeaderGP.IsVisible = count > 0;
+            this.lblHeaderYP.IsVisible = count > 0;
+            this.lblHeaderPP.IsVisible = count > 0;
+
+            if (count == 0)
             {
                 await DisplayAlert("提示", "未找到任何匹配记录！", "确定");
             }

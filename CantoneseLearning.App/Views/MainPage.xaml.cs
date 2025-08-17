@@ -2,15 +2,20 @@
 using viwik.CantoneseLearning.App.Helper;
 using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.BLL.MAUI.Manager;
 using viwik.CantoneseLearning.Model;
 
-namespace viwik.CantoneseLearning.App
+namespace viwik.CantoneseLearning.App.Views
 {
     public partial class MainPage : ContentPage
     {
+        private SettingInfo setting;
+
         public MainPage()
         {
             InitializeComponent();
+
+            this.setting = SettingManager.GetSetting();
         }
 
         private void OnSearchButtonClicked(object sender, EventArgs e)
@@ -37,6 +42,11 @@ namespace viwik.CantoneseLearning.App
             if (count == 0)
             {
                 await DisplayAlert("提示", "未找到任何匹配记录！", "确定");
+            }
+
+            foreach(var syllable in syllables)
+            {
+                syllable.Dynamic_Display = this.setting.PinYinMode == PinYinMode.GP ? syllable.SyllableFull_GP_Display : syllable.SyllableFull_Display;
             }
 
             this.lstSyllables.ItemsSource = syllables;

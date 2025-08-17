@@ -7,5 +7,8 @@
         public string Consonant_YP { get; set; }
 
         public string Consonant_GP { get; set; }
+        public string Description_YP { get; set; }
+
+        public string Description_GP { get; set; }
     }
 }

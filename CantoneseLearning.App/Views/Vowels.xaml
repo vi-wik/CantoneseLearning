@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="viwik.CantoneseLearning.App.Vowels"
+             x:Class="viwik.CantoneseLearning.App.Views.Vowels"
              Title="">
     <ContentPage.Resources>
         <Style x:Key="VowelButtonStyle" BasedOn="{StaticResource ConsonantButton}" TargetType="Button">
@@ -11,68 +11,10 @@
     </ContentPage.Resources>
 
     <ScrollView Orientation="Vertical">
-        <Grid Padding="10" RowSpacing="10" ColumnSpacing="10"
-                RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*"
-                ColumnDefinitions="*,*,*,*">
-
-            <Button Text="aa" Grid.Row="0" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aai" Grid.Row="0" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aak" Grid.Row="0" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aam" Grid.Row="0" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aan" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}" />
-            <Button Text="aang" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aap" Grid.Row="1" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aat" Grid.Row="1" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="aau" Grid.Row="2" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}" />
-            <Button Text="ai" Grid.Row="2" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ak" Grid.Row="2" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="am" Grid.Row="2" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="an" Grid.Row="3" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}" />
-            <Button Text="ang" Grid.Row="3" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ap" Grid.Row="3" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="at" Grid.Row="3" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="au" Grid.Row="4" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="e" Grid.Row="4" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ei" Grid.Row="4" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ek" Grid.Row="4" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="em" Grid.Row="5" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="en" Grid.Row="5" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="eng" Grid.Row="5" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="eoi" Grid.Row="5" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="eon" Grid.Row="6" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="eot" Grid.Row="6" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ep" Grid.Row="6" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="eu" Grid.Row="6" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="i" Grid.Row="7" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ik" Grid.Row="7" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="im" Grid.Row="7" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="in" Grid.Row="7" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ing" Grid.Row="8" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ip" Grid.Row="8" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="it" Grid.Row="8" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="iu" Grid.Row="8" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="m" Grid.Row="9" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ng" Grid.Row="9" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="o" Grid.Row="9" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="oe" Grid.Row="9" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="oek" Grid.Row="10" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="oeng" Grid.Row="10" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="oi" Grid.Row="10" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ok" Grid.Row="10" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="on" Grid.Row="11" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ong" Grid.Row="11" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ot" Grid.Row="11" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ou" Grid.Row="11" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="u" Grid.Row="12" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ui" Grid.Row="12" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="uk" Grid.Row="12" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="un" Grid.Row="12" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ung" Grid.Row="13" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="ut" Grid.Row="13" Grid.Column="1" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="yu" Grid.Row="13" Grid.Column="2" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="yun" Grid.Row="13" Grid.Column="3" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-            <Button Text="yut" Grid.Row="14" Grid.Column="0" Clicked="Button_Clicked" Style="{StaticResource VowelButtonStyle}"/>
-        </Grid>
+        <VerticalStackLayout>
+            <Grid  x:Name="gvVowel" Padding="10" RowSpacing="10" ColumnSpacing="2"  ColumnDefinitions="*,*,*,*">
+            </Grid>
+        </VerticalStackLayout>
     </ScrollView>
     
 </ContentPage>

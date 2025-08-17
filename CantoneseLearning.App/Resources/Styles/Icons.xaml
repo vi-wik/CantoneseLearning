@@ -10,7 +10,8 @@
     <x:String x:Key="book">&#xf02d;</x:String>
     <x:String x:Key="pronounce">&#xf028;</x:String>
     <x:String x:Key="back">&#xf060;</x:String>
-    <x:String x:Key="user">&#xf007;</x:String>   
+    <x:String x:Key="user">&#xf007;</x:String>
+    <x:String x:Key="learn">&#xf51c;</x:String>
     <x:String x:Key="setting">&#xf013;</x:String>
     <x:String x:Key="import">&#xf56f;</x:String>
     <x:String x:Key="export">&#xf56e;</x:String>
@@ -23,4 +24,5 @@
     <x:String x:Key="save">&#xf0c7;</x:String>
     <x:String x:Key="home">&#xf015;</x:String>
     <x:String x:Key="translate">&#xf57e;</x:String>
+    <x:String x:Key="film">&#xf008;</x:String>
 </ResourceDictionary>
