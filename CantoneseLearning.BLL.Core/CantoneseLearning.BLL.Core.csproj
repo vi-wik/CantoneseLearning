@@ -25,7 +25,6 @@
     <ProjectReference Include="..\CantoneseLearning.DataAccess\CantoneseLearning.DataAccess.csproj" />
     <ProjectReference Include="..\CantoneseLearning.Model\CantoneseLearning.Model.csproj" />
     <ProjectReference Include="..\CantoneseLearning.Participle\CantoneseLearning.Participle.csproj" />
-    <ProjectReference Include="..\CantoneseLearning.Utility\CantoneseLearning.Utility.csproj" />
   </ItemGroup>
 
 </Project>

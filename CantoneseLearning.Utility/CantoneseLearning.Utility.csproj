@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>  
-    <Nullable>enable</Nullable>  
-    <AssemblyName>viwik.$(MSBuildProjectName)</AssemblyName>  
-    <RootNamespace>viwik.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>  
-    <Version>1.0.0</Version>  
-    <Authors>vi-wik</Authors>  
-    <PackageProjectUrl>https://github.com/vi-wik/CantoneseLearning</PackageProjectUrl>  
-    <AssemblyVersion>1.0.0</AssemblyVersion>  
-    <FileVersion>1.0.0</FileVersion>  
-    <Description>粤语学习工具类库</Description>  
-    <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>  
-    <PackageId>viwik.$(AssemblyName)</PackageId>  
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <AssemblyName>viwik.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>viwik.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <PackageId>viwik.$(AssemblyName)</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>vi-wik</Authors>
+    <Description>粤语学习工具类库</Description>
+    <PackageProjectUrl>https://github.com/vi-wik/CantoneseLearning</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
