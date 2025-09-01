@@ -41,7 +41,7 @@ public partial class Setting : ContentPage
 
     private async void TapGestureRecognizer_BackupDataTapped(object sender, TappedEventArgs e)
     {
-        if (!(await PermissionHelper.CheckPermission(PermissionType.Write)))
+        if (!(await PermissionHelper.CheckReadWritePermission(PermissionType.Write)))
         {
             return;
         }
@@ -81,7 +81,7 @@ public partial class Setting : ContentPage
 
     private async void TapGestureRecognizer_ImportDataTapped(object sender, TappedEventArgs e)
     {
-        if (!(await PermissionHelper.CheckPermission(PermissionType.Read)))
+        if (!(await PermissionHelper.CheckReadWritePermission(PermissionType.Read)))
         {
             return;
         }
@@ -116,7 +116,7 @@ public partial class Setting : ContentPage
 
     private async void TapGestureRecognizer_ViewLogTapped(object sender, TappedEventArgs e)
     {
-        if (!(await PermissionHelper.CheckPermission(PermissionType.Read)))
+        if (!(await PermissionHelper.CheckReadWritePermission(PermissionType.Read)))
         {
             return;
         }
@@ -132,7 +132,7 @@ public partial class Setting : ContentPage
 
         if (confirmed)
         {
-            if (!(await PermissionHelper.CheckPermission(PermissionType.Write)))
+            if (!(await PermissionHelper.CheckReadWritePermission(PermissionType.Write)))
             {
                 await DisplayAlert("提示", "无写入权限！", "确定");
                 return;
