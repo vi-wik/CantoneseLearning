@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
+using System.Text.RegularExpressions;
 using viwik.CantoneseLearning.BLL.Core;
 using viwik.CantoneseLearning.BLL.Core.Helper;
 using viwik.CantoneseLearning.BLL.Core.Model;
@@ -9,23 +11,42 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
 {
     public class TranslateHelper
     {
+        private static readonly string placeholderPrefix = "###";
+        private static readonly List<string> pronouns = new List<string>() { "我", "你" };
+
         internal static IEnumerable<V_Mandarin2Cantonese> Mandarin2Cantoneses { get; private set; }
         internal static IEnumerable<V_CantoneseExample> CantoneseExamples { get; private set; }
         internal static IEnumerable<CantoneseSynonym> CantoneseSynonyms { get; set; }
         internal static IEnumerable<CantoneseSentencePattern> CantoneseSentencePatterns { get; set; }
+        internal static IEnumerable<CantoneseEqualsMandarin> CantoneseEqualsMandarins { get; set; }
 
         internal static string RegexPlaceHolder = "...";
         internal static char[] ItemsSplitors = [',', '，'];
 
-        internal static async Task<TranslationResult> Translate(TranslateType translateType, string content)
+
+        internal static async Task<TranslationResult> Translate(TranslateType translateType, string content, IEnumerable<string> reservedWords = null)
         {
-            content = ChineseConverterHelper.TraditionalToSimplified(content);
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char c in content)
+            {
+                if (!(translateType == TranslateType.Cantonese2Mandarin && c == '係'))
+                {
+                    sb.Append(ChineseConverterHelper.TraditionalToSimplified(c.ToString()));
+                }
+                else
+                {
+                    sb.Append(c.ToString());
+                }
+            }
+
+            content = sb.ToString();
 
             TranslationResult result = new TranslationResult();
 
             if (Mandarin2Cantoneses == null)
             {
-                Mandarin2Cantoneses = await DataProcessor.GetVMandarin2Cantoneses();
+                Mandarin2Cantoneses = await DataProcessor.GetVMandarin2Cantoneses(true);
             }
 
             if (CantoneseExamples == null)
@@ -41,6 +62,29 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
             if (CantoneseSentencePatterns == null)
             {
                 CantoneseSentencePatterns = await DataProcessor.GetCantoneseSentencePatterns();
+            }
+
+            if (CantoneseEqualsMandarins == null)
+            {
+                CantoneseEqualsMandarins = await DataProcessor.GetCantoneseEqualsMandarins();
+            }
+
+            List<string> reservedList = new List<string>();
+
+            if (CantoneseEqualsMandarins != null)
+            {
+                reservedList.AddRange(CantoneseEqualsMandarins.Select(item => item.Content));
+            }
+
+            if (reservedWords != null)
+            {
+                foreach (var item in reservedWords)
+                {
+                    if (!string.IsNullOrEmpty(item) && !reservedList.Contains(item))
+                    {
+                        reservedList.Add(item);
+                    }
+                }
             }
 
             Action<V_Mandarin2Cantonese> setResult = (res) =>
@@ -129,7 +173,7 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                         }
                     }
 
-                    var pieces = GetCutPieces(translateType, content);
+                    var pieces = GetCutPieces(translateType, content, reservedWords);
 
                     bool handled1 = false;
                     bool handled2 = false;
@@ -208,7 +252,7 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
 
                                     if (count > 0)
                                     {
-                                        var subPieces1 = GetCutPieces(translateType, combination);
+                                        var subPieces1 = GetCutPieces(translateType, combination, reservedWords);
 
                                         if (count < nextWord.Length)
                                         {
@@ -218,7 +262,7 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                                             {
                                                 string leftWord = nextWord.Substring(count);
 
-                                                var subPieces2 = GetCutPieces(translateType, leftWord);
+                                                var subPieces2 = GetCutPieces(translateType, leftWord, reservedWords);
 
                                                 pieces.RemoveAt(i + 1);
                                                 pieces.InsertRange(i + 1, subPieces2);
@@ -252,9 +296,9 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                                 }
                             }
                         }
-                        else if(word == "几乎")
+                        else if (word == "几乎")
                         {
-                            if(!handled5)
+                            if (!handled5)
                             {
                                 pieces.Add(pieces[i]);
                                 pieces.RemoveAt(i);
@@ -270,42 +314,65 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                 #region 粤=>普
                 else
                 {
+                    Dictionary<string, string> dictReservedPlaceHolder = new Dictionary<string, string>();
+
+                    int phi = 1;
+
+                    foreach (var item in reservedList)
+                    {
+                        if (content.Contains(item))
+                        {
+                            string placeholder = $"{placeholderPrefix}{phi}";
+
+                            content = content.Replace(item, placeholder);
+
+                            dictReservedPlaceHolder.Add(placeholder, item);
+
+                            phi++;
+                        }
+                    }
+
                     var moods = GetCantoneseMoods();
 
                     foreach (var endParttern in moods)
                     {
                         if (content.EndsWith(endParttern.Pattern))
                         {
-                            content = content.Substring(0, content.Length - endParttern.Pattern.Length);
+                            string pattern = endParttern.Pattern;
+
+                            if (pattern != "啊")
+                            {
+                                content = content.Substring(0, content.Length - endParttern.Pattern.Length);
+                            }
                         }
                     }
 
                     List<SentenceItem> items = new List<SentenceItem>();
                     List<SentenceItem> matchedItems = new List<SentenceItem>();
 
+                    Func<Match, bool> checkMatches = (match) =>
+                    {
+                        int index = match.Index;
+                        int stopIndex = match.Index + match.Length - 1;
+
+                        if (matchedItems.Any(item => item.StartIndex <= index && item.StopIndex >= stopIndex))
+                        {
+                            return false;
+                        }
+
+                        var smallMatchedItems = matchedItems.Where(item => item.StartIndex >= index && item.StopIndex <= stopIndex);
+
+                        foreach (var sm in smallMatchedItems.OrderByDescending(item => item.StartIndex))
+                        {
+                            matchedItems.RemoveAt(matchedItems.IndexOf(sm));
+                        }
+
+                        return true;
+                    };
+
                     foreach (var mc in Mandarin2Cantoneses)
                     {
-                        var cantoneses = GetItemsBySynonym(mc.Cantonese, mc.CantoneseSynonym);
-
-                        Func<Match, bool> checkMatches = (match) =>
-                        {
-                            int index = match.Index;
-                            int stopIndex = match.Index + match.Length - 1;
-
-                            if (matchedItems.Any(item => item.StartIndex <= index && item.StopIndex >= stopIndex))
-                            {
-                                return false;
-                            }
-
-                            var smallMatchedItems = matchedItems.Where(item => item.StartIndex >= index && item.StopIndex <= stopIndex);
-
-                            foreach (var sm in smallMatchedItems.OrderByDescending(item => item.StartIndex))
-                            {
-                                matchedItems.RemoveAt(matchedItems.IndexOf(sm));
-                            }
-
-                            return true;
-                        };
+                        var cantoneses = GetItemsBySynonym(mc.Cantonese, mc.CantoneseSynonym);                        
 
                         if (!string.IsNullOrEmpty(mc.CantoneseRegex))
                         {
@@ -371,6 +438,18 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                                         continue;
                                     }
 
+                                    int? patternId = mc.PatternId;
+
+                                    if(patternId.HasValue)
+                                    {
+                                        var pattern = CantoneseSentencePatterns.FirstOrDefault(item=>item.Id == patternId);
+
+                                        if(pattern.IsStart && match.Index>0)
+                                        {
+                                            continue;
+                                        }
+                                    }
+
                                     SentenceItem item = new SentenceItem() { Word = match.Value, StartIndex = match.Index, IsMatched = true };
 
                                     var mandarins = GetItemsBySynonym(mc.Mandarin, mc.MandarinSynonym);
@@ -401,9 +480,9 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                         {
                             string word = content.Substring(startIndex, i - startIndex + 1);
 
-                            SentenceItem item = new SentenceItem() { Word = word, StartIndex = startIndex, ReplaceValue = word };
+                            var results = DetectWord(word, reservedList, startIndex, dictReservedPlaceHolder);
 
-                            items.Add(item);
+                            items.AddRange(results);
 
                             i++;
                             startIndex = i;
@@ -412,9 +491,9 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                         {
                             string word = content.Substring(startIndex);
 
-                            SentenceItem item = new SentenceItem() { Word = word, StartIndex = startIndex, ReplaceValue = word };
+                            var results = DetectWord(word, reservedList, startIndex, dictReservedPlaceHolder);
 
-                            items.Add(item);
+                            items.AddRange(results);
 
                             break;
                         }
@@ -489,7 +568,7 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                                         {
                                             bool isNounOrPronoun = ParticipleHelper.IsNounOrPronoun(items[j].ReplaceValue ?? items[j].Word);
 
-                                            if(!isNounOrPronoun)
+                                            if (!isNounOrPronoun)
                                             {
                                                 foundIndex = j;
                                                 break;
@@ -565,6 +644,21 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
                     }
 
                     result.Contents.Add(string.Join("", items.Select(item => item.ReplaceValue)));
+
+                    if (dictReservedPlaceHolder.Count > 0)
+                    {
+                        for (int i = 0; i < result.Contents.Count; i++)
+                        {
+                            string item = result.Contents[i];
+
+                            foreach (var kp in dictReservedPlaceHolder)
+                            {
+                                item = item.Replace(kp.Key, kp.Value);
+                            }
+
+                            result.Contents[i] = item;
+                        }
+                    }
                 }
                 #endregion
             }
@@ -572,9 +666,63 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
             return result;
         }
 
-        private static List<CutPiece> GetCutPieces(TranslateType translateType, string content)
+        private static List<SentenceItem> DetectWord(string word, List<string> reservedWords, int startIndex, Dictionary<string, string> dictReservedPlaceHolder)
         {
-            var cuts = ParticipleHelper.Cut(content);
+            List<SentenceItem> results = new List<SentenceItem>();
+
+            var items = pronouns.Concat(reservedWords).Distinct().OrderByDescending(item => item.Length);
+
+            foreach (var item in items)
+            {
+                if (item != word)
+                {
+                    string value = null;
+
+                    if (word.StartsWith(item))
+                    {
+                        value = item;
+                    }
+                    else if (dictReservedPlaceHolder.ContainsValue(item))
+                    {
+                        string key = dictReservedPlaceHolder.FirstOrDefault(t => t.Value == item).Key;
+
+                        if (word.StartsWith(key))
+                        {
+                            value = key;
+                        }
+                    }
+
+                    if (value != null)
+                    {
+                        SentenceItem si1 = new SentenceItem() { StartIndex = startIndex, Word = value, ReplaceValue = value };
+
+                        results.Add(si1);
+
+                        string leftValue = word.Substring(value.Length);
+
+                        if (leftValue.Length > 0)
+                        {
+                            SentenceItem si2 = new SentenceItem() { StartIndex = startIndex + item.Length, Word = leftValue, ReplaceValue = leftValue };
+
+                            results.Add(si2);
+                        }
+
+                        break;
+                    }
+                }
+            }
+
+            if (results.Count == 0)
+            {
+                results.Add(new SentenceItem() { StartIndex = startIndex, Word = word, ReplaceValue = word });
+            }
+
+            return results;
+        }
+
+        private static List<CutPiece> GetCutPieces(TranslateType translateType, string content, IEnumerable<string> customWords = null)
+        {
+            var cuts = ParticipleHelper.Cut(content, customWords);
 
             List<CutPiece> pieces = new List<CutPiece>();
 
@@ -708,6 +856,11 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
 
         private static void ExchangeCutPiece(List<CutPiece> cutPieces, int index1, int index2)
         {
+            if (index2 > cutPieces.Count - 1)
+            {
+                return;
+            }
+
             CutPiece temp = null;
 
             temp = cutPieces[index1];
@@ -735,7 +888,7 @@ namespace viwik.CantoneseLearning.BLL.Core.Helper
 
             var synonymItems = synonym.Split(ItemsSplitors);
 
-            if(CantoneseSynonyms == null)
+            if (CantoneseSynonyms == null)
             {
                 CantoneseSynonyms = DataProcessor.GetCantoneseSynonyms().Result;
             }

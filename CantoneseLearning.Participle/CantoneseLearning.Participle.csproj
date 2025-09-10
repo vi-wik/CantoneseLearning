@@ -2,16 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <PackageId>viwik.$(AssemblyName)</PackageId>
     <Authors>vi-wik</Authors>
     <Description>粤语学习分词帮助类库</Description>
     <PackageProjectUrl>https://github.com/vi-wik/CantoneseLearning</PackageProjectUrl>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
     <RepositoryUrl>https://github.com/vi-wik/CantoneseLearning</RepositoryUrl>
     <AssemblyName>viwik.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>viwik.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <PackageReleaseNotes>更改包引用</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Faithlife.JiebaNet.Segmenter" Version="0.1.1" />
+    <PackageReference Include="viwik.JiebaNet.Segmenter" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

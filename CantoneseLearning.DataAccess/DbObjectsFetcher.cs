@@ -31,11 +31,11 @@ namespace viwik.CantoneseLearning.DataAccess
 
         public static async Task<(IEnumerable<V_CantoneseWordSyllable> CantoneseSyllables, IEnumerable<V_MandarinWordSyllable> MandarinSyllables)> GetSyllables(string content)
         {
-            var words = content.Select(item => item.ToString()).ToArray();      
+            var words = content.Select(item => item.ToString()).ToArray();
             string wordsIn = string.Join(',', words.Select(item => $"'{DbUtitlity.GetSafeValue(item)}'"));
 
             string cantoneseSql = $"select * from V_CantoneseWordSyllable where Word in({wordsIn}) and Hidden=0";
-            string mandarinSql = $"select * from V_MandarinWordSyllable where Word in({wordsIn})";          
+            string mandarinSql = $"select * from V_MandarinWordSyllable where Word in({wordsIn})";
 
             using (var connection = DbUtitlity.CreateDbConnection())
             {
@@ -43,7 +43,7 @@ namespace viwik.CantoneseLearning.DataAccess
                 var mandarinSyllables = (await connection.QueryAsync<V_MandarinWordSyllable>(mandarinSql));
 
                 return (cantoneseSyllables, mandarinSyllables);
-            }           
+            }
         }
 
         public static async Task<IEnumerable<V_SyllableRelation>> GetSyllableRelations(SyllableType type, string syllable)
@@ -132,16 +132,21 @@ namespace viwik.CantoneseLearning.DataAccess
             }
         }
 
-        public static async Task<IEnumerable<V_Mandarin2Cantonese>> GetVMandarin2Cantoneses()
+        public static async Task<IEnumerable<V_Mandarin2Cantonese>> GetVMandarin2Cantoneses(bool excludeIgnored = false)
         {
             string sql = "select * from V_Mandarin2Cantonese";
+
+            if (excludeIgnored)
+            {
+                sql += " where IgnoreWhenTranslate=0";
+            }
 
             using (var connection = DbUtitlity.CreateDbConnection())
             {
                 return (await connection.QueryAsync<V_Mandarin2Cantonese>(sql));
             }
         }
-        
+
 
         public static async Task<IEnumerable<V_CantoneseExample>> GetVCantoneseExamples()
         {
@@ -497,6 +502,16 @@ namespace viwik.CantoneseLearning.DataAccess
                 int? num = (await connection.QueryAsync<int>(sql))?.FirstOrDefault();
 
                 return num > 0;
+            }
+        }
+
+        public static async Task<IEnumerable<CantoneseEqualsMandarin>> GetCantoneseEqualsMandarins()
+        {
+            string sql = $"select * from CantoneseEqualsMandarin";
+
+            using (var connection = DbUtitlity.CreateDbConnection())
+            {
+                return await connection.QueryAsync<CantoneseEqualsMandarin>(sql);
             }
         }
     }

@@ -10,7 +10,7 @@
         public string Exclusion { get; set; }       
         public string MandarinRegex { get; set; }
         public string CantoneseRegex { get; set; }
-        public int PatternId { get; set; }       
+        public int? PatternId { get; set; }       
         public string Pattern { get; set; }
         public bool IsStart { get; set; }
         public bool IsMiddle { get; set; }

@@ -413,9 +413,9 @@ namespace viwik.CantoneseLearning.BLL.Core
             return await DbObjectsFetcher.GetMandarin2Cantoneses();
         }
 
-        public static async Task<IEnumerable<V_Mandarin2Cantonese>> GetVMandarin2Cantoneses()
+        public static async Task<IEnumerable<V_Mandarin2Cantonese>> GetVMandarin2Cantoneses(bool excludeIgnored = false)
         {
-            return await DbObjectsFetcher.GetVMandarin2Cantoneses();
+            return await DbObjectsFetcher.GetVMandarin2Cantoneses(excludeIgnored);
         }
 
         public static async Task<IEnumerable<V_CantoneseExample>> GetVCantoneseExamples()
@@ -433,9 +433,9 @@ namespace viwik.CantoneseLearning.BLL.Core
             return await DbObjectsFetcher.GetCantoneseSentencePatterns();
         }
 
-        public static async Task<TranslationResult> Translate(TranslateType translateType, string content)
+        public static async Task<TranslationResult> Translate(TranslateType translateType, string content, IEnumerable<string> reservedWords = null)
         {
-            return await TranslateHelper.Translate(translateType, content);
+            return await TranslateHelper.Translate(translateType, content, reservedWords);
         }
 
         public static async Task<bool> HasUserDataTable(string dbFilePath)
@@ -637,6 +637,11 @@ namespace viwik.CantoneseLearning.BLL.Core
         public static async Task<bool> IsMediaFavoriteCategoryBeRefered(List<int> ids)
         {
             return await DbObjectsFetcher.IsMediaFavoriteCategoryBeRefering(ids);
+        }
+
+        public static async Task<IEnumerable<CantoneseEqualsMandarin>> GetCantoneseEqualsMandarins()
+        {
+            return await DbObjectsFetcher.GetCantoneseEqualsMandarins();
         }
     }
 }
