@@ -26,7 +26,7 @@ public partial class SyllableAlternatives : Popup
         this.LoadData();
     }
 
-    private void Popup_Opened(object sender, CommunityToolkit.Maui.Core.PopupOpenedEventArgs e)
+    private void Popup_Opened(object sender, EventArgs e)
     {
        
     }

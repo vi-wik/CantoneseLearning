@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34622.214
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11012.119 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.Model", "CantoneseLearning.Model\CantoneseLearning.Model.csproj", "{A8D74ED5-5686-4DFE-9997-311B381942BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.DataAccess", "CantoneseLearning.DataAccess\CantoneseLearning.DataAccess.csproj", "{823E6A7F-6A8E-46E0-9C76-E7C5C242CA44}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.App", "CantoneseLearning.App\CantoneseLearning.App.csproj", "{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CantoneseLearning.Participle", "CantoneseLearning.Participle\CantoneseLearning.Participle.csproj", "{6EF9226A-FC51-4AA2-9E39-10EB99BD8406}"
 EndProject
@@ -18,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CantoneseLearning.BLL.Core", "CantoneseLearning.BLL.Core\CantoneseLearning.BLL.Core.csproj", "{97634481-86D7-482C-A2B8-28C6C04369C4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CantoneseLearning.Utility", "CantoneseLearning.Utility\CantoneseLearning.Utility.csproj", "{FB0E1F85-7AE9-4579-8B7F-6AAD4306E871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CantoneseLearning.App", "CantoneseLearning.App\CantoneseLearning.App.csproj", "{D712BF48-B841-4777-913E-D2E2D0039552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,24 +53,6 @@ Global
 		{823E6A7F-6A8E-46E0-9C76-E7C5C242CA44}.Release|ARM64.Build.0 = Release|Any CPU
 		{823E6A7F-6A8E-46E0-9C76-E7C5C242CA44}.Release|x64.ActiveCfg = Release|x64
 		{823E6A7F-6A8E-46E0-9C76-E7C5C242CA44}.Release|x64.Build.0 = Release|x64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|ARM64.Build.0 = Debug|ARM64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|x64.Build.0 = Debug|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Debug|x64.Deploy.0 = Debug|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|ARM64.ActiveCfg = Release|ARM64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|ARM64.Build.0 = Release|ARM64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|ARM64.Deploy.0 = Release|ARM64
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|x64.ActiveCfg = Release|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|x64.Build.0 = Release|Any CPU
-		{DC6B3B04-6AB2-42F8-BD61-D650F210C97B}.Release|x64.Deploy.0 = Release|Any CPU
 		{6EF9226A-FC51-4AA2-9E39-10EB99BD8406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EF9226A-FC51-4AA2-9E39-10EB99BD8406}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EF9226A-FC51-4AA2-9E39-10EB99BD8406}.Debug|ARM64.ActiveCfg = Debug|Any CPU
@@ -131,6 +113,19 @@ Global
 		{FB0E1F85-7AE9-4579-8B7F-6AAD4306E871}.Release|ARM64.Build.0 = Release|Any CPU
 		{FB0E1F85-7AE9-4579-8B7F-6AAD4306E871}.Release|x64.ActiveCfg = Release|Any CPU
 		{FB0E1F85-7AE9-4579-8B7F-6AAD4306E871}.Release|x64.Build.0 = Release|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Debug|x64.Build.0 = Debug|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Release|ARM64.Build.0 = Release|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Release|x64.ActiveCfg = Release|Any CPU
+		{D712BF48-B841-4777-913E-D2E2D0039552}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

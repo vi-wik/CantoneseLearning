@@ -6,17 +6,20 @@ public delegate Task<bool> PromptHandler(string content, object args);
 
 public partial class Prompt : Popup
 {
+    public event PromptHandler OnPromptValidate;
     public event PromptHandler OnPromptConfirm;
 
     string title;
     string defaultContent;
     string contentName;
-    object args;    
+    object args;
 
     public Prompt(string title, string contentName = null, string defaultContent = "", object args = null)
     {
-        InitializeComponent();     
+        InitializeComponent();
 
+        this.Margin = 0;
+        this.Padding = 0;
 
         this.title = title;
         this.defaultContent = defaultContent;
@@ -36,12 +39,23 @@ public partial class Prompt : Popup
         await CloseAsync();
     }
 
-    private void Popup_Opened(object sender, CommunityToolkit.Maui.Core.PopupOpenedEventArgs e)
+    private void Popup_Opened(object sender, EventArgs e)
     {
-        if (!string.IsNullOrEmpty(defaultContent))
+        if (!string.IsNullOrEmpty(this.defaultContent))
         {
-            this.txtContent.Text = defaultContent;
+            this.txtContent.Text = this.defaultContent;
         }
+
+        Dispatcher.Dispatch(() =>
+        {
+            this.txtContent.Focus();
+
+            if (!string.IsNullOrEmpty(this.defaultContent))
+            {
+                this.txtContent.CursorPosition = 0;
+                this.txtContent.SelectionLength = defaultContent.Length;
+            }
+        });
     }
 
     private string GetContentName()
@@ -60,24 +74,27 @@ public partial class Prompt : Popup
             MessageHelper.ShowToastMessage($"请输入{contentName}！");
             return;
         }
-        else if(content == this.defaultContent)
+        else if (content == this.defaultContent)
         {
             MessageHelper.ShowToastMessage($"{contentName}与原{contentName}相同！");
             return;
         }
 
+        bool isValid = true;
+
         if (this.OnPromptConfirm != null)
         {
-            bool isValid = await this.OnPromptConfirm(content, args);
-
-            if (isValid)
-            {
-                await CloseAsync(content);
-            }
+            isValid = await this.OnPromptValidate(content, args);
         }
-        else
+
+        if (isValid && this.OnPromptConfirm != null)
         {
-            await CloseAsync(content);
+            isValid = await this.OnPromptConfirm(content, args);
+        }
+
+        if (isValid)
+        {
+            await CloseAsync();
         }
     }
 

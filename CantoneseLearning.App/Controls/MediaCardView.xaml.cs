@@ -1,5 +1,7 @@
 using viwik.CantoneseLearning.BLL.Core;
+using viwik.CantoneseLearning.BLL.Core.Helper;
 using viwik.CantoneseLearning.BLL.Core.Model;
+using viwik.CantoneseLearning.BLL.MAUI.Helper;
 using viwik.CantoneseLearning.Model;
 using MyMediaPlayer = viwik.CantoneseLearning.App.Views.MediaPlayer;
 
@@ -12,6 +14,23 @@ public partial class MediaCardView : ContentView
     public MediaCardView()
     {
         InitializeComponent();
+    }
+
+    protected override void OnBindingContextChanged()
+    {
+        base.OnBindingContextChanged();
+
+        this.BindImageSource();
+    }
+
+    private async Task BindImageSource()
+    {
+        var bindingContext = this.BindingContext;
+
+        if (bindingContext != null)
+        {
+            this.img.Source = await ImageHelper.GetImageSource((bindingContext as V_CantoneseMedia)?.ImageUrl);
+        }
     }
 
     private bool CanNavigateToMediaPlayer()

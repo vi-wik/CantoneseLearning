@@ -22,8 +22,11 @@ namespace viwik.CantoneseLearning.App
                     LogManager.LogException(exception);
                 }
             };
+        }
 
-            MainPage = new AppShell();
+        protected override Window CreateWindow(IActivationState? activationState)
+        {
+            return new Window(new AppShell());
         }
     }
 }

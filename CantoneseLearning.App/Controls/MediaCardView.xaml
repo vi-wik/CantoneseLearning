@@ -23,10 +23,10 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.RowSpan="3" Padding="0,0">
-            <Image Source="{Binding ImageUrl}"
-                Aspect="AspectFit"
-                WidthRequest="128"
-                HeightRequest="72"/>
+            <Image x:Name="img"
+                 Aspect="AspectFit"
+                 WidthRequest="128"
+                 HeightRequest="72"/>
         </Border>
 
         <Label Grid.Column="1"

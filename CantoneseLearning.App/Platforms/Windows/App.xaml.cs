@@ -1,10 +1,10 @@
-﻿using viwik.CantoneseLearning.App;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
+using viwik.CantoneseLearning.App;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace viwik.CantoneseLearning.WinUI
+namespace CantoneseLearning.App.WinUI
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

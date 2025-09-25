@@ -1,4 +1,7 @@
+using CommunityToolkit.Maui;
+using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Maui.Views;
+using Microsoft.Maui.Controls.Shapes;
 using System.Xml.Linq;
 using viwik.CantoneseLearning.App.Helper;
 using viwik.CantoneseLearning.App.Model;
@@ -9,6 +12,8 @@ namespace viwik.CantoneseLearning.App.Views;
 
 public partial class FavoriteCategorySetting : ContentPage
 {
+    private PopupOptions popupOptions = new PopupOptions() { Shadow = null, Shape = new RoundRectangle() { CornerRadius = new CornerRadius(0, 0, 0, 0) } };
+
     public FavoriteCategorySetting()
     {
         InitializeComponent();
@@ -35,37 +40,68 @@ public partial class FavoriteCategorySetting : ContentPage
     {
         var popup = new Prompt("新建收藏夹", "名称", "", new EventArgsInfo() { IsAdd = true });
 
-        popup.OnPromptConfirm += Popup_OnPromptConfirm;
+        popup.OnPromptValidate += this.Popup_OnPromptValidate;
+        popup.OnPromptConfirm += this.Popup_OnPromptConfirm;
 
-        var result = await this.ShowPopupAsync(popup);
-
-        if(result == null)
-        {
-            return;
-        }
-
-        var name = result.ToString();
-
-        if (!string.IsNullOrEmpty(name))
-        {
-            MediaFavoriteCategory category = new MediaFavoriteCategory() { Name = name };
-
-            bool success = await DataProcessor.AddMediaFavoriteCategory(category);
-
-            if (success)
-            {
-                MessageHelper.ShowToastMessage("添加成功。");
-
-                this.LoadData();
-            }
-            else
-            {
-                await DisplayAlert("提示", "添加失败！", "确定");
-            }
-        }
+        await this.ShowPopupAsync(popup, this.popupOptions);
     }
 
     private async Task<bool> Popup_OnPromptConfirm(string content, object args)
+    {
+        EventArgsInfo info = args as EventArgsInfo;
+
+        if (info != null)
+        {
+            var name = content;
+
+            if (info.IsAdd)
+            {
+                if (!string.IsNullOrEmpty(name))
+                {
+                    MediaFavoriteCategory category = new MediaFavoriteCategory() { Name = name };
+
+                    bool success = await DataProcessor.AddMediaFavoriteCategory(category);
+
+                    if (success)
+                    {
+                        MessageHelper.ShowToastMessage("添加成功。");
+
+                        this.LoadData();
+                    }
+                    else
+                    {
+                        await DisplayAlert("提示", "添加失败！", "确定");
+                    }
+
+                    return success;
+                }
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(name))
+                {
+                    bool success = await DataProcessor.RenameMediaFavoriteCategory(info.Id, name);
+
+                    if (success)
+                    {
+                        MessageHelper.ShowToastMessage("修改成功。");
+
+                        this.LoadData();
+                    }
+                    else
+                    {
+                        await DisplayAlert("提示", "修改失败！", "确定");
+                    }
+
+                    return success;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private async Task<bool> Popup_OnPromptValidate(string content, object args)
     {
         EventArgsInfo info = args as EventArgsInfo;
 
@@ -140,32 +176,10 @@ public partial class FavoriteCategorySetting : ContentPage
 
         var popup = new Prompt("重命名收藏夹", "名称", category.Name, new EventArgsInfo() { IsAdd = false, Id = category.Id });
 
-        popup.OnPromptConfirm += Popup_OnPromptConfirm;
+        popup.OnPromptValidate += this.Popup_OnPromptValidate;
+        popup.OnPromptConfirm += this.Popup_OnPromptConfirm;
 
-        var result = await this.ShowPopupAsync(popup);
-
-        if(result == null)
-        {
-            return;
-        }
-
-        var name = result.ToString();
-
-        if (!string.IsNullOrEmpty(name))
-        {
-            bool success = await DataProcessor.RenameMediaFavoriteCategory(category.Id, name);
-
-            if (success)
-            {
-                MessageHelper.ShowToastMessage("修改成功。");
-
-                this.LoadData();
-            }
-            else
-            {
-                await DisplayAlert("提示", "修改失败！", "确定");
-            }
-        }
+        await this.ShowPopupAsync(popup, this.popupOptions);
     }
 
     private class EventArgsInfo
