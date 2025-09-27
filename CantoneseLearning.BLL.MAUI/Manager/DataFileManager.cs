@@ -14,7 +14,7 @@ namespace viwik.CantoneseLearning.BLL.MAUI.Manager
         private readonly static string dbVersionFileName = "DbVersion.txt";
         private static string folderName => "data";
 
-        public static string DataFolder => Path.Combine(RootFolder, folderName);
+        public static string DataFolder => Path.Combine(DataRootFolder, folderName);
 
         public static string DataFilePath
         {
@@ -25,7 +25,7 @@ namespace viwik.CantoneseLearning.BLL.MAUI.Manager
                     throw new NotImplementedException();
                 }
 
-                return Path.Combine(RootFolder, folderName, dataFileName);
+                return Path.Combine(DataRootFolder, folderName, dataFileName);
             }
         }
 

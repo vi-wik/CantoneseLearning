@@ -29,7 +29,7 @@ public partial class MediaCardView : ContentView
 
         if (bindingContext != null)
         {
-            this.img.Source = await ImageHelper.GetImageSource((bindingContext as V_CantoneseMedia)?.ImageUrl);
+            this.img.Source = await ImageHelper.GetImageSource(bindingContext as V_CantoneseMedia);
         }
     }
 

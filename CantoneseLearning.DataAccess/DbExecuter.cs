@@ -132,27 +132,15 @@ namespace viwik.CantoneseLearning.DataAccess
 
         public static async Task<int> ClearMediaAccessHistories()
         {
-            using (var connection = DbUtitlity.CreateDbConnection())
-            {
-                string sql = $"delete from MediaAccessHistory";
-
-                await connection.OpenAsync();
-
-                var transaction = await connection.BeginTransactionAsync();
-
-                int affectedRows = (await connection.ExecuteAsync(sql));
-
-                await transaction.CommitAsync();
-
-                return affectedRows;
-            }
+            return await ClearTableData("MediaAccessHistory");           
         }
+       
 
-        public static async Task<int> ClearVOCABs()
+        private static async Task<int> ClearTableData(string tableName)
         {
             using (var connection = DbUtitlity.CreateDbConnection())
             {
-                string sql = $"delete from VOCAB";
+                string sql = $"delete from {tableName}";
 
                 await connection.OpenAsync();
 
